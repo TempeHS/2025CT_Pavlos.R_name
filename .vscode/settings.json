@@ -1,0 +1,15 @@
+{
+  "files.autoSave": "onFocusChange",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "csharp.format.enable": true,
+  "editor.defaultFormatter": "csharpier.csharpier-vscode",
+  "notebook.defaultFormatter": "csharpier.csharpier-vscode",
+  "cscurlyformatter.autoTabIndentation": true,
+  "editor.fontSize": 18,
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "window.restoreWindows": "preserve",
+  "workbench.editorAssociations": {
+    "*.md": "vscode.markdown.preview.editor"
+  }
+}
