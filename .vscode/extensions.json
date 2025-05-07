@@ -1,18 +1,19 @@
 {
-  "recommendations": [
-    "McCarter.start-git-bash",
-    "ms-dotnettools.vscode-dotnet-runtime",
-    "ms-dotnettools.csharp",
-    "oderwat.indent-rainbow",
-    "mathematic.vscode-pdf",
-    "GitHub.codespaces",
-    "ms-dotnettools.csdevkit",
-    "csharpier.csharpier-vscode",
-    "yahyabatulu.vscode-markdown-alert",
-    "bierner.markdown-preview-github-styles",
-    "ironcutter24.cscurly",
-    "visualstudiotoolsforunity.unity-pack",
-    "bierner.markdown-mermaid",
-    "pixl.unity-toolbox"
-  ]
+    "recommendations": [
+        "McCarter.start-git-bash",
+        "ms-dotnettools.vscode-dotnet-runtime",
+        "ms-dotnettools.csharp",
+        "oderwat.indent-rainbow",
+        "mathematic.vscode-pdf",
+        "GitHub.codespaces",
+        "ms-dotnettools.csdevkit",
+        "csharpier.csharpier-vscode",
+        "yahyabatulu.vscode-markdown-alert",
+        "bierner.markdown-preview-github-styles",
+        "ironcutter24.cscurly",
+        "visualstudiotoolsforunity.unity-pack",
+        "bierner.markdown-mermaid",
+        "pixl.unity-toolbox",
+        "visualstudiotoolsforunity.vstuc"
+    ]
 }
