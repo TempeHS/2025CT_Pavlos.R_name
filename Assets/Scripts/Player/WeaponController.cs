@@ -32,14 +32,17 @@ public class WeaponController : MonoBehaviour
             }
             else if (attackCount == 1)
             {
+                transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, -45);
                 rb.AddTorque(swingStrength, ForceMode2D.Impulse);
             }
             else if (attackCount == 2)
             {
+                transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 45);
                 rb.AddTorque(-swingStrength, ForceMode2D.Impulse);
             }
             else if (attackCount == 3)
             {
+                transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, -45);
                 rb.AddTorque(swingStrength * 4, ForceMode2D.Impulse);
             }
             else
@@ -57,14 +60,17 @@ public class WeaponController : MonoBehaviour
             }
             else if (attackCount == 1)
             {
+                transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, -135);
                 rb.AddTorque(-swingStrength, ForceMode2D.Impulse);
             }
             else if (attackCount == 2)
             {
+                transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 135);
                 rb.AddTorque(swingStrength, ForceMode2D.Impulse);
             }
             else if (attackCount == 3)
             {
+                transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, -135);
                 rb.AddTorque(-swingStrength * 4, ForceMode2D.Impulse);
             }
             else

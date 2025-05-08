@@ -13,6 +13,7 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] public float damage;
     [SerializeField] public float knockback;
+    [SerializeField] public float health;
 
     public float usedKnockback;
 
@@ -169,6 +170,14 @@ public class EnemyScript : MonoBehaviour
             rAttacking = false;
             useTime = 2;
             attackTimer = 2;
+        }
+    }
+
+    private void die() 
+    {
+        if(health <= 0) 
+        {
+            Destroy(gameObject);
         }
     }
 }
