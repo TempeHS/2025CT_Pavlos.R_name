@@ -668,6 +668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+  damage: 0
 --- !u!1 &976342726
 GameObject:
   m_ObjectHideFlags: 0
@@ -3095,6 +3096,7 @@ MonoBehaviour:
   speed: 10
   damage: 0
   knockback: 2000
+  health: 10
   usedKnockback: 0
 --- !u!212 &2019149695
 SpriteRenderer:
