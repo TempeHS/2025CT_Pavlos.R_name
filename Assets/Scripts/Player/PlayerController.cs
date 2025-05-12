@@ -181,6 +181,7 @@ public class PlayerController : MonoBehaviour
             if(canAttack || attackBuffer && attackTime <= 0)
             {
                 weaponController.Attack(attackCount);
+                
                 attackTime = 0.5f;
                 attackBuffer = false;
                 

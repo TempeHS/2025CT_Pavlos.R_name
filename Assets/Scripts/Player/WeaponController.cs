@@ -19,6 +19,11 @@ public class WeaponController : MonoBehaviour
     void Update()
     {
         transform.position = Player.transform.position;
+
+        if(Player.GetComponent<PlayerController>().flipped == true) 
+            {
+                
+            }
     }
 
     public void Attack(int attackCount)

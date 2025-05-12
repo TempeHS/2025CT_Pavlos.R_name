@@ -41,6 +41,7 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        die();
         //transform.LookAt(new Vector2(90, 90));
 
     }
