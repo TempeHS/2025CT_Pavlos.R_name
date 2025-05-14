@@ -27,7 +27,7 @@ public class EnemyScript : MonoBehaviour
     private bool jAttacking = false;
 
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private bool lineOfSight = false;
     // Start is called before the first frame update
     void Start()

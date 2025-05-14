@@ -3094,7 +3094,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rangeAttack: {fileID: 976342726}
   speed: 10
-  damage: 0
+  damage: 1
   knockback: 2000
   health: 10
   usedKnockback: 0
