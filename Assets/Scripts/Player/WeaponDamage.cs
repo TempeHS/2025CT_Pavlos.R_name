@@ -24,8 +24,7 @@ public class WeaponDamage : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<EnemyScript>().health -= damage;
-            Debug.Log("Hit");
+            collision.gameObject.GetComponent<EnemyStats>().hurt(damage);
         }
     }
 

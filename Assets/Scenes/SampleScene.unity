@@ -3071,6 +3071,7 @@ GameObject:
   - component: {fileID: 2019149696}
   - component: {fileID: 2019149695}
   - component: {fileID: 2019149694}
+  - component: {fileID: 2019149699}
   - component: {fileID: 2019149697}
   - component: {fileID: 2019149698}
   m_Layer: 2
@@ -3098,6 +3099,7 @@ MonoBehaviour:
   knockback: 2000
   health: 10
   usedKnockback: 0
+  rb: {fileID: 0}
 --- !u!212 &2019149695
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3241,6 +3243,20 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 0
+--- !u!114 &2019149699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019149693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4802e238ac393334ea4d187d484d6063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  health: 0
 --- !u!1 &2050043123
 GameObject:
   m_ObjectHideFlags: 0
