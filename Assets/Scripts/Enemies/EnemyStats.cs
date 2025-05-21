@@ -11,7 +11,6 @@ public class EnemyStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemy = gameObject.GetComponent<EnemyScript>();
         damage = enemy.damage;
         health = enemy.health;
     }
@@ -22,8 +21,18 @@ public class EnemyStats : MonoBehaviour
 
     }
 
+    private void search()
+    {
+
+        enemy = gameObject.GetComponent<EnemyScript>();
+
+        if (enemy == null)
+        {
+
+        }
+    }
     public void hurt(float plyDamage)
     {
-       enemy.health -=  plyDamage;
+        enemy.health -= plyDamage;
     }
 }
