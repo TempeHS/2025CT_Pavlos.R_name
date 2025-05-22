@@ -11,6 +11,8 @@ public class EnemyStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        enemy = gameObject.GetComponent<EnemyScript>();
         damage = enemy.damage;
         health = enemy.health;
     }
