@@ -7,14 +7,15 @@ public class EnemyStats : MonoBehaviour
 
     [SerializeField] private float damage;
     [SerializeField] private float health;
-    private EnemyScript enemy;
+    private int enemy;
+    
     // Start is called before the first frame update
     void Start()
     {
 
-        enemy = gameObject.GetComponent<EnemyScript>();
-        damage = enemy.damage;
-        health = enemy.health;
+
+        /*damage = enemy.damage;
+        health = enemy.health;*/
     }
 
     // Update is called once per frame
@@ -25,16 +26,24 @@ public class EnemyStats : MonoBehaviour
 
     private void search()
     {
-
-        enemy = gameObject.GetComponent<EnemyScript>();
-
-        if (enemy == null)
-        {
-
-        }
+        
     }
     public void hurt(float plyDamage)
     {
-        enemy.health -= plyDamage;
+        switch (enemy)
+        {
+
+            case 1:
+                EnemyScript e1 = gameObject.GetComponent<EnemyScript>();
+                e1.health -= plyDamage;
+                break;
+
+            case 2:
+                bossAi e2 = gameObject.GetComponent<bossAi>();
+                e2.health -= plyDamage;
+                break;
+
+        }
+        
     }
 }
