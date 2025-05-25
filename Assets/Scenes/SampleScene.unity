@@ -536,6 +536,7 @@ GameObject:
   - component: {fileID: 654398361}
   - component: {fileID: 654398364}
   - component: {fileID: 654398363}
+  - component: {fileID: 654398365}
   m_Layer: 0
   m_Name: Hexagon Pointed-Top
   m_TagString: Enemy
@@ -640,6 +641,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   health: 0
+--- !u!114 &654398365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654398360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba43746c497b877448b199f53f8f8172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tags:
+  - {fileID: 11400000, guid: 84ff5c9e2de509e43b5c2b8211523843, type: 2}
+  - {fileID: 11400000, guid: 72cf378cafba4684aad2532a898fe2d1, type: 2}
 --- !u!1 &755802177
 GameObject:
   m_ObjectHideFlags: 0
@@ -7560,6 +7576,7 @@ GameObject:
   - component: {fileID: 2019149699}
   - component: {fileID: 2019149697}
   - component: {fileID: 2019149698}
+  - component: {fileID: 2019149700}
   m_Layer: 2
   m_Name: Triangle
   m_TagString: Enemy
@@ -7743,6 +7760,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   health: 0
+--- !u!114 &2019149700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019149693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba43746c497b877448b199f53f8f8172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tags:
+  - {fileID: 11400000, guid: 84ff5c9e2de509e43b5c2b8211523843, type: 2}
 --- !u!1 &2050043123
 GameObject:
   m_ObjectHideFlags: 0
