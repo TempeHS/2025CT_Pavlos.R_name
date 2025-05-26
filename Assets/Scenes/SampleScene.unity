@@ -641,6 +641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   health: 0
+  _tagCheck: {fileID: 0}
 --- !u!114 &654398365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,6 +669,7 @@ GameObject:
   - component: {fileID: 755802180}
   - component: {fileID: 755802179}
   - component: {fileID: 755802181}
+  - component: {fileID: 755802182}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -801,6 +803,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 2050043123}
   damage: 1
+--- !u!114 &755802182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755802177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14998f6ac0a62d4a84ad125e07feec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tagCheck: {fileID: 0}
 --- !u!1 &976342726
 GameObject:
   m_ObjectHideFlags: 0
@@ -7760,6 +7775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   health: 0
+  _tagCheck: {fileID: 0}
 --- !u!114 &2019149700
 MonoBehaviour:
   m_ObjectHideFlags: 0

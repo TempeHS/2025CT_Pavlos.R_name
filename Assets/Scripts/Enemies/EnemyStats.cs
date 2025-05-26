@@ -7,6 +7,8 @@ public class EnemyStats : MonoBehaviour
 
     [SerializeField] private float damage;
     [SerializeField] private float health;
+
+    [SerializeField] private Tag _tagCheck;
     private int enemy;
     
     // Start is called before the first frame update
@@ -26,7 +28,20 @@ public class EnemyStats : MonoBehaviour
 
     private void search()
     {
-        
+        if (gameObject.TryGetComponent<Tags>(out var tags))
+        {
+            if (tags.HasTag("Enemy"))
+            {
+                if (tags.HasTag("Boss"))
+                {
+                    enemy = 2;
+                }
+                else
+                {
+                    enemy = 1;
+                }
+            }
+        }
     }
     public void hurt(float plyDamage)
     {
