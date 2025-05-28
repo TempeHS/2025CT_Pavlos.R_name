@@ -52,7 +52,7 @@ public class EnemyScript : MonoBehaviour
         if (ray.collider != null)
         {
             lineOfSight = ray.collider.CompareTag("Player");
-            if (lineOfSight)
+            if (lineOfSight && ray.distance <= 25)
             {
                 Debug.DrawRay(transform.position, Player.transform.position - transform.position, Color.green);
             } 
@@ -62,7 +62,7 @@ public class EnemyScript : MonoBehaviour
             }
         }
 
-        if (lineOfSight)
+        if (lineOfSight && ray.distance <= 25)
         {
 
             Vector3 targetVelocity = new Vector3(Player.transform.position.x - transform.position.x, 0, 0);

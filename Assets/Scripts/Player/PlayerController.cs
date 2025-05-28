@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
 
         } else if(isGrounded)
         {
-            flightTime = 1;
+            flightTime = 2;
         }
 
         if(flightTime <= 0)
