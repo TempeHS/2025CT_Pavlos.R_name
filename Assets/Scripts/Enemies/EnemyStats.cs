@@ -5,8 +5,9 @@ using UnityEngine;
 public class EnemyStats : MonoBehaviour
 {
 
-    [SerializeField] private float damage;
+    [SerializeField] public float damage;
     [SerializeField] private float health;
+    [SerializeField] public float knockback;
 
     [SerializeField] private Tag _tagCheck;
     private int enemy;
@@ -50,11 +51,15 @@ public class EnemyStats : MonoBehaviour
             case 1:
                 EnemyScript e1 = gameObject.GetComponent<EnemyScript>();
                 e1.health -= plyDamage;
+                damage = e1.damage;
+                knockback = e1.usedKnockback;
                 break;
 
             case 2:
                 bossAi e2 = gameObject.GetComponent<bossAi>();
                 e2.health -= plyDamage;
+                damage = e2.damage;
+                knockback = e2.knockback;
                 break;
 
         }

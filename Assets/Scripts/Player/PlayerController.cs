@@ -207,17 +207,36 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            if(!Parrying)
+            if (!Parrying)
             {
-                collision.gameObject.GetComponent<EnemyScript>();
-                health -= collision.gameObject.GetComponent<EnemyScript>().damage;
-                rb.AddForce(Vector3.Normalize(new Vector2(transform.position.x - collision.transform.position.x, transform.position.y - collision.transform.position.y / 1.5f)) * collision.gameObject.GetComponent<EnemyScript>().usedKnockback);
-            } 
-            else if(Parrying)
-            {
-               collision.gameObject.GetComponent<EnemyScript>().rb.AddForce(Vector3.Normalize(new Vector2(collision.transform.position.x - transform.position.x, collision.transform.position.y - transform.position.y / 1.5f)) * collision.gameObject.GetComponent<EnemyScript>().usedKnockback); 
+                collision.gameObject.GetComponent<EnemyStats>();
+                health -= collision.gameObject.GetComponent<EnemyStats>().damage;
+                rb.AddForce(Vector3.Normalize(new Vector2(transform.position.x - collision.transform.position.x, transform.position.y - collision.transform.position.y / 1.5f)) * collision.gameObject.GetComponent<EnemyStats>().knockback);
             }
-            
+            else if (Parrying)
+            {
+                collision.gameObject.GetComponent<EnemyScript>().rb.AddForce(Vector3.Normalize(new Vector2(collision.transform.position.x - transform.position.x, collision.transform.position.y - transform.position.y / 1.5f)) * collision.gameObject.GetComponent<EnemyStats>().knockback);
+            }
+
+        }
+        
+        if (TryGetComponent<Tags>(out var tags))
+        {
+            if (tags.HasTag("Projectile"))
+            {
+                if (!Parrying)
+                {
+                    collision.gameObject.GetComponent<EnemyScript>();
+                    health -= collision.gameObject.GetComponent<EnemyScript>().damage;
+                    rb.AddForce(Vector3.Normalize(new Vector2(transform.position.x - collision.transform.position.x, transform.position.y - collision.transform.position.y / 1.5f)) * collision.gameObject.GetComponent<EnemyScript>().usedKnockback);
+                }
+                else if (Parrying)
+                {
+                    collision.gameObject.GetComponent<EnemyScript>().rb.AddForce(Vector3.Normalize(new Vector2(collision.transform.position.x - transform.position.x, collision.transform.position.y - transform.position.y / 1.5f)) * collision.gameObject.GetComponent<EnemyScript>().usedKnockback);
+                }
+            }
+
+
         }
     }
 

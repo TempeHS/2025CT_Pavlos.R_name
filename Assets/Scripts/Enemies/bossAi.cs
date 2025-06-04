@@ -12,6 +12,8 @@ public class bossAi : MonoBehaviour
     [SerializeField] public float knockback;
     [SerializeField] public float health;
 
+    private float attacktime;
+
     private bool attacking = false;
     private bool lineOfSight = false;
     // Start is called before the first frame update
@@ -35,7 +37,12 @@ public class bossAi : MonoBehaviour
             if (lineOfSight)
             {
                 attacking = true;
-            } 
+            }
         }
+    }
+
+    void attack1()
+    {
+        
     }
 }
