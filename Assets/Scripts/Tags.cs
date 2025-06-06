@@ -6,7 +6,6 @@ public class Tags : MonoBehaviour
 {
     [SerializeField]
     private List<Tag> _tags;
-
     public List<Tag> All => _tags;
 
     public bool HasTag(Tag t)

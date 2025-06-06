@@ -224,16 +224,7 @@ public class PlayerController : MonoBehaviour
         {
             if (tags.HasTag("Projectile"))
             {
-                if (!Parrying)
-                {
-                    collision.gameObject.GetComponent<EnemyScript>();
-                    health -= collision.gameObject.GetComponent<EnemyScript>().damage;
-                    rb.AddForce(Vector3.Normalize(new Vector2(transform.position.x - collision.transform.position.x, transform.position.y - collision.transform.position.y / 1.5f)) * collision.gameObject.GetComponent<EnemyScript>().usedKnockback);
-                }
-                else if (Parrying)
-                {
-                    collision.gameObject.GetComponent<EnemyScript>().rb.AddForce(Vector3.Normalize(new Vector2(collision.transform.position.x - transform.position.x, collision.transform.position.y - transform.position.y / 1.5f)) * collision.gameObject.GetComponent<EnemyScript>().usedKnockback);
-                }
+                    health -= collision.gameObject.GetComponent<ProjStats>().damage;
             }
 
 

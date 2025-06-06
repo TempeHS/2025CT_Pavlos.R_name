@@ -11,6 +11,7 @@ public class bossAi : MonoBehaviour
     [SerializeField] public float damage;
     [SerializeField] public float knockback;
     [SerializeField] public float health;
+    private GameObject Proj1;
 
     private float attacktime;
 
@@ -43,6 +44,6 @@ public class bossAi : MonoBehaviour
 
     void attack1()
     {
-        
+        Instantiate(Proj1, gameObject.transform);
     }
 }

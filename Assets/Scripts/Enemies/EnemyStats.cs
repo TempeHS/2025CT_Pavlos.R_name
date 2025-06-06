@@ -56,6 +56,7 @@ public class EnemyStats : MonoBehaviour
                 break;
 
             case 2:
+                
                 bossAi e2 = gameObject.GetComponent<bossAi>();
                 e2.health -= plyDamage;
                 damage = e2.damage;
