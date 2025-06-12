@@ -12,21 +12,19 @@ public class ProjStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        search();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.TryGetComponent<Tags>(out var tags))
-        {
+
             switch (proj)
             {
                 case 1:
                 damage = 1;
                 break;
             }
-        }
 
     }
     void search()

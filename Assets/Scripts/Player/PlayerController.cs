@@ -220,11 +220,13 @@ public class PlayerController : MonoBehaviour
 
         }
         
-        if (TryGetComponent<Tags>(out var tags))
+        if (collision.gameObject.TryGetComponent<Tags>(out var tags))
         {
             if (tags.HasTag("Projectile"))
             {
-                    health -= collision.gameObject.GetComponent<ProjStats>().damage;
+                health -= collision.gameObject.GetComponent<ProjStats>().damage;
+                Debug.Log("hurt");
+                Destroy(collision.gameObject);
             }
 
 

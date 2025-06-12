@@ -7740,6 +7740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tags:
   - {fileID: 11400000, guid: 24ba776fb2e1cbe4cbc0075bf9a74529, type: 2}
+  - {fileID: 11400000, guid: 48632a2865a1ba844bc988c2ad57cc72, type: 2}
 --- !u!212 &1999346217
 SpriteRenderer:
   m_ObjectHideFlags: 0

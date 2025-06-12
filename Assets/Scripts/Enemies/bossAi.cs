@@ -46,4 +46,15 @@ public class bossAi : MonoBehaviour
     {
         Instantiate(Proj1, gameObject.transform);
     }
+
+    void radProj(int numProj)
+    {
+
+        float angle = 0f;
+
+        for (int i = 0; i <= numProj - 1; i++)
+        {
+            float projectileDirXposition = transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
+        }
+    }
 }
