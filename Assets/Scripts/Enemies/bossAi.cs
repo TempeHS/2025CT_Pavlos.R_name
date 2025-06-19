@@ -24,12 +24,13 @@ public class bossAi : MonoBehaviour
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
+        attack1();
     }
 
     // Update is called once per frame
     void Update()
     {
-        attack1();
+
     }
 
     void FixedUpdate()
@@ -56,7 +57,7 @@ public class bossAi : MonoBehaviour
         int radius = 1;
         float angle = 0f;
         float angleStep = 360f / numProj;
-        float moveSpeed = 2;
+        float moveSpeed = 10;
 
         for (int i = 0; i <= numProj - 1; i++)
         {
