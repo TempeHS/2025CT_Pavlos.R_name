@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7349570302989119072}
   - component: {fileID: 8277221565018918475}
   - component: {fileID: 3787972747286524920}
+  - component: {fileID: 4102504176058418592}
   m_Layer: 0
   m_Name: Proj1
   m_TagString: Untagged
@@ -191,3 +192,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+--- !u!114 &4102504176058418592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6518811762270741591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89ce6d6ee65fbd74692649155a47cd52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 64
+  Proj2: {fileID: 0}

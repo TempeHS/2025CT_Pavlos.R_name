@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Proj1 : MonoBehaviour
 {
+    [SerializeField] private LayerMask whatIsGround;
     [SerializeField] private GameObject Proj2;
     // Start is called before the first frame update
     void Start()
@@ -20,9 +21,10 @@ public class Proj1 : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Hit");
-        if(collision.gameObject.layer == 6)
+        if (collision.gameObject.layer == 6)
         {
             Debug.Log("destroy");
+
             Destroy(gameObject);
             Instantiate(Proj2);
         }

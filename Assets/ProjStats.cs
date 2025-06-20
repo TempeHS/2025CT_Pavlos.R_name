@@ -19,12 +19,18 @@ public class ProjStats : MonoBehaviour
     void Update()
     {
 
-            switch (proj)
-            {
-                case 1:
+        switch (proj)
+        {
+            case 1:
+
                 damage = 1;
                 break;
-            }
+
+            case 2:
+            
+                damage = 1;
+                break;
+        }
 
     }
     void search()
@@ -34,6 +40,10 @@ public class ProjStats : MonoBehaviour
             if (tags.HasTag("Proj1"))
             {
                 proj = 1;
+            }
+            else if (tags.HasTag("Proj2"))
+            {
+                proj = 2;
             }
 
         }
