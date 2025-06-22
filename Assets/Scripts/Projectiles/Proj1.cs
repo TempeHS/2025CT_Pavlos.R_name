@@ -26,7 +26,7 @@ public class Proj1 : MonoBehaviour
             Debug.Log("destroy");
 
             Destroy(gameObject);
-            Instantiate(Proj2);
+            Instantiate(Proj2, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
         }
     }
 }
