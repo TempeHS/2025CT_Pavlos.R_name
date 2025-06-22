@@ -21,7 +21,7 @@ public class Proj2 : MonoBehaviour
         time += Time.deltaTime;
         speed += Time.deltaTime;
 
-        rgd.AddForce();
+        //rgd.AddForce();
 
     }
 }
