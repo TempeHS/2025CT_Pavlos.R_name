@@ -22,11 +22,18 @@ public class Proj2 : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        speed += Time.deltaTime / 10000;
+        speed += Time.deltaTime / 5000;
+        if (time <= 4)
+        {
+            Vector2 move = new Vector2(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y);
+            move = Vector3.Normalize(move);
+            rgd.AddForce(move * speed);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
-        Vector2 move = new Vector2(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y);
-        move = Vector3.Normalize(move);
-        rgd.AddForce(move * speed);
 
     }
 }

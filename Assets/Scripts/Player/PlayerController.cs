@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
         inputHandler = PlayerInputHandler.Instance;
         dashTime = 1;
         ySpeedTrue = ySpeed;
-        flightTime = 1;
+        flightTime = 2;
     }
 
     private void Update()
@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
 
         } else if(isGrounded)
         {
-            flightTime = 2;
+            flightTime = 4;
         }
 
         if(flightTime <= 0)
