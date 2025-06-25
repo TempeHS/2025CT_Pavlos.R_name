@@ -15,7 +15,9 @@ public class Proj1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //this.transform.forward = this.GetComponent<Rigidbody2D>().velocity;
+         float angle = Mathf.Atan2(GetComponent<Rigidbody2D>().velocity.y, GetComponent<Rigidbody2D>().velocity.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
