@@ -7489,7 +7489,7 @@ MonoBehaviour:
   damage: 1
   knockback: 0
   health: 10
-  Proj2: {fileID: 8533107004475504771, guid: ba3cb2c92aee1204c8bb320dced3768e, type: 3}
+  Proj2: {fileID: 822836606282734490, guid: 835311cc0e4a74c49bf5107132b3e0f1, type: 3}
 --- !u!114 &1187848286
 MonoBehaviour:
   m_ObjectHideFlags: 0
