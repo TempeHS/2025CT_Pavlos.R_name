@@ -34,6 +34,9 @@ public class Proj2 : MonoBehaviour
             Destroy(gameObject);
         }
 
+        float angle = Mathf.Atan2(GetComponent<Rigidbody2D>().velocity.y, GetComponent<Rigidbody2D>().velocity.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
 
     }
 }
