@@ -54,6 +54,7 @@ public class EnemyScript : MonoBehaviour
             lineOfSight = ray.collider.CompareTag("Player");
             if (lineOfSight && ray.distance <= 25)
             {
+                Debug.Log(ray.distance);
                 Debug.DrawRay(transform.position, Player.transform.position - transform.position, Color.green);
             } 
             else
