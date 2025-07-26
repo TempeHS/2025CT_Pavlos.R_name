@@ -5,16 +5,17 @@ using UnityEngine;
 public class WeaponDamage : MonoBehaviour
 {
 
-    [SerializeField] private GameObject Player;
+    [SerializeField] private GameObject PlayerStats;
     private PlayerStats stats;
     [SerializeField] private float damage;
 
-    void awake() 
+    void Awake() 
     {
-        stats = Player.GetComponent<PlayerStats>();
+        PlayerStats = GameObject.FindFirstObjectByType<PlayerStats>();
+        stats = PlayerStats.GetComponent<PlayerStats>();
     }
 
-    void update() 
+    void Update() 
     {
         damage = stats.damage;
         
