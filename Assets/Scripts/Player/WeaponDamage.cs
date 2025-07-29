@@ -11,7 +11,7 @@ public class WeaponDamage : MonoBehaviour
 
     void Awake() 
     {
-        PlayerStats = GameObject.FindFirstObjectByType<PlayerStats>();
+        PlayerStats = GameObject.Find("PlayerStats");
         stats = PlayerStats.GetComponent<PlayerStats>();
     }
 

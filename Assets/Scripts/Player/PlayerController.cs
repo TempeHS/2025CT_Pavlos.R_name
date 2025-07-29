@@ -25,7 +25,9 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     private PlayerInputHandler inputHandler;
     private SpriteRenderer spriteRenderer;
+    private GameObject PlayerStats;
     private PlayerStats stats;
+    private HitStop hitStop;
     [SerializeField] private GameObject weapon;
     private WeaponController weaponController;
 
@@ -49,9 +51,12 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        PlayerStats = GameObject.Find("PlayerStats");
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        stats = GetComponent<PlayerStats>();
+        stats = PlayerStats.GetComponent<PlayerStats>();
+        hitStop = PlayerStats.GetComponent<HitStop>();
+
 
     }
 
@@ -209,12 +214,14 @@ public class PlayerController : MonoBehaviour
         {
             if (!Parrying)
             {
+                hitStop.stop(collision.gameObject.GetComponent<EnemyStats>().StopTime);
                 collision.gameObject.GetComponent<EnemyStats>();
                 health -= collision.gameObject.GetComponent<EnemyStats>().damage;
                 rb.AddForce(Vector3.Normalize(new Vector2(transform.position.x - collision.transform.position.x, transform.position.y - collision.transform.position.y / 1.5f)) * collision.gameObject.GetComponent<EnemyStats>().knockback);
             }
             else if (Parrying)
             {
+                hitStop.stop(stats.StopTime);
                 collision.gameObject.GetComponent<EnemyScript>().rb.AddForce(Vector3.Normalize(new Vector2(collision.transform.position.x - transform.position.x, collision.transform.position.y - transform.position.y / 1.5f)) * collision.gameObject.GetComponent<EnemyStats>().knockback);
             }
 

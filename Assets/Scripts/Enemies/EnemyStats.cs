@@ -11,6 +11,7 @@ public class EnemyStats : MonoBehaviour
 
     [SerializeField] private Tag _tagCheck;
     private int enemy;
+    [SerializeField] public float StopTime;
     
     // Start is called before the first frame update
     void Start()
@@ -35,10 +36,12 @@ public class EnemyStats : MonoBehaviour
                 if (tags.HasTag("Boss"))
                 {
                     enemy = 2;
+                    StopTime = 0.2f;
                 }
                 else
                 {
                     enemy = 1;
+                    StopTime = 0.1f;
                 }
             }
         }

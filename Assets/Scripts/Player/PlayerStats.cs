@@ -12,6 +12,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] public float speed;
     [SerializeField] public float damage;
     [SerializeField] public float knockBackResist;
+    [SerializeField] public float StopTime;
 
     private void Awake()
     {
