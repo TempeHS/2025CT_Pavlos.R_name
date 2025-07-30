@@ -174,11 +174,13 @@ public class PlayerController : MonoBehaviour
         if (attackTime <= 0 && attackBuffer == false)
         {
             attackCount = 0;
+            weaponController.gameObject.SetActive(false);
         }
 
         if (inputHandler.AttackTriggered || attackBuffer)
         {
-            if(attackCount < 4 && attackTime > 0f && attackTime < 0.3 && attackBuffer == false)
+            weaponController.gameObject.SetActive(true);
+            if (attackCount < 4 && attackTime > 0f && attackTime < 0.3 && attackBuffer == false)
             {
                 attackCount += 1;
                 attackBuffer = true;
@@ -218,11 +220,13 @@ public class PlayerController : MonoBehaviour
                 collision.gameObject.GetComponent<EnemyStats>();
                 health -= collision.gameObject.GetComponent<EnemyStats>().damage;
                 rb.AddForce(Vector3.Normalize(new Vector2(transform.position.x - collision.transform.position.x, transform.position.y - collision.transform.position.y / 1.5f)) * collision.gameObject.GetComponent<EnemyStats>().knockback);
+                Debug.Log("hurt");
             }
             else if (Parrying)
             {
                 hitStop.stop(stats.StopTime);
                 collision.gameObject.GetComponent<EnemyScript>().rb.AddForce(Vector3.Normalize(new Vector2(collision.transform.position.x - transform.position.x, collision.transform.position.y - transform.position.y / 1.5f)) * collision.gameObject.GetComponent<EnemyStats>().knockback);
+                Debug.Log("Parry");
             }
 
         }
