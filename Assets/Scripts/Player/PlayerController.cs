@@ -67,7 +67,6 @@ public class PlayerController : MonoBehaviour
 
         health = stats.health;
 
-        weaponController = weapon.GetComponent<WeaponController>();
         inputHandler = PlayerInputHandler.Instance;
         dashTime = 1;
         ySpeedTrue = ySpeed;
@@ -174,12 +173,12 @@ public class PlayerController : MonoBehaviour
         if (attackTime <= 0 && attackBuffer == false)
         {
             attackCount = 0;
-            weaponController.gameObject.SetActive(false);
+
         }
 
         if (inputHandler.AttackTriggered || attackBuffer)
         {
-            weaponController.gameObject.SetActive(true);
+
             if (attackCount < 4 && attackTime > 0f && attackTime < 0.3 && attackBuffer == false)
             {
                 attackCount += 1;
@@ -201,7 +200,7 @@ public class PlayerController : MonoBehaviour
 
             if(canAttack || attackBuffer && attackTime <= 0)
             {
-                weaponController.Attack(attackCount);
+
                 
                 attackTime = 0.5f;
                 attackBuffer = false;

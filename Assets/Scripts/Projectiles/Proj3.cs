@@ -5,7 +5,6 @@ using UnityEngine;
 public class Proj3 : MonoBehaviour
 {
 
-    private Animator anim;
     private float timer;
     
     [SerializeField] private GameObject Proj1;
@@ -13,8 +12,7 @@ public class Proj3 : MonoBehaviour
     private bool attack;
     // Start is called before the first frame update
     void Start()
-    {
-        anim = GetComponent<Animator>();
+    { 
         attack = true;
     }
 
@@ -22,7 +20,6 @@ public class Proj3 : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        anim.SetFloat("Timer", timer);
 
         if (timer >= 3   && attack == true)
         {
