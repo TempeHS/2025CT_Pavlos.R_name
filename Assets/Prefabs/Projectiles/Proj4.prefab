@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 4348005731084883292}
   - component: {fileID: 8451893776661484657}
   - component: {fileID: 1778316719974672478}
-  - component: {fileID: 2637348023233526643}
   - component: {fileID: 4611416800832060444}
   - component: {fileID: 962749271405907879}
+  - component: {fileID: 6230620822664890059}
   m_Layer: 0
   m_Name: Proj4
   m_TagString: Untagged
@@ -139,22 +139,6 @@ MonoBehaviour:
   _tags:
   - {fileID: 11400000, guid: 24ba776fb2e1cbe4cbc0075bf9a74529, type: 2}
   - {fileID: 11400000, guid: 6661c87f676b3a849bfca436ae501e75, type: 2}
---- !u!114 &2637348023233526643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8533107004475504771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89ce6d6ee65fbd74692649155a47cd52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
-  Proj2: {fileID: 2713031197616843979, guid: 232a1128220010f4780c34cc41f5e873, type: 3}
 --- !u!60 &4611416800832060444
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -230,3 +214,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6230620822664890059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8533107004475504771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 673b7ae632d9a804782c862e8a220f3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 64

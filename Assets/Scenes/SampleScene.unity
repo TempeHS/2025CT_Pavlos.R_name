@@ -13970,7 +13970,10 @@ MonoBehaviour:
   damage: 1
   knockback: 0
   health: 10
+  Proj1: {fileID: 8533107004475504771, guid: e9353712cbae21049a24baccb2f94a92, type: 3}
   Proj2: {fileID: 822836606282734490, guid: 835311cc0e4a74c49bf5107132b3e0f1, type: 3}
+  Dopple: {fileID: 0}
+  DoppleScript: {fileID: 0}
 --- !u!114 &1187848286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14149,6 +14152,9 @@ MonoBehaviour:
   value: 0
   hue: 286
   saturation: 100
+  boss: {fileID: 1187848280}
+  Player: {fileID: 992435143}
+  PlayerOffset: 10
 --- !u!1 &1601362949
 GameObject:
   m_ObjectHideFlags: 0

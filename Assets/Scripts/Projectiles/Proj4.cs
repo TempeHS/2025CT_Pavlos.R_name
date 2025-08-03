@@ -5,11 +5,10 @@ using UnityEngine;
 public class Proj4 : MonoBehaviour
 {
     [SerializeField] private LayerMask whatIsGround;
-    [SerializeField] private GameObject Proj2;
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(DeathTime());
     }
 
     // Update is called once per frame
@@ -20,12 +19,9 @@ public class Proj4 : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    IEnumerator DeathTime()
     {
-        if (collision.gameObject.layer == 6)
-        {
-
-            Destroy(gameObject);
-        }
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
     }
 }
