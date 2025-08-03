@@ -43,7 +43,7 @@ Material:
     m_Floats: []
     m_Colors:
     - _Moving: {r: 0.25, g: 0.25, b: 0, a: 0}
-    - _Moving_1: {r: 0.1, g: 0.1, b: 0, a: 0}
+    - _Moving_1: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _Purple: {r: 0.72133636, g: 0, b: 1, a: 0}
     - _Red: {r: 1, g: 0, b: 0, a: 0}
     - _Red_1: {r: 0.38113198, g: 0, b: 0, a: 0}
