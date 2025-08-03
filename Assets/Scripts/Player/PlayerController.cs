@@ -16,10 +16,10 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private LayerMask whatIsGround;
     [SerializeField] private Transform groundCheck;
-    [SerializeField] private bool isGrounded;
+    [SerializeField] public bool isGrounded;
 
     private float ySpeedTrue;
-    private float flightTime;
+    public float flightTime;
     private Vector3 Velocity = Vector3.zero;
 
     public Rigidbody2D rb;
@@ -34,11 +34,11 @@ public class PlayerController : MonoBehaviour
     public bool flipped;
 
     public float horizontalInput;
-    private float verticalInput;
+    public float verticalInput;
 
     private bool canParry = true;
     private float parryTime;
-    private bool Parrying = false;
+    public bool Parrying = false;
 
     private bool canDash = true;
     public int dashDirection = 1;
@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
     private bool canAttack = true;
     [SerializeField] private float attackTime;
     [SerializeField] public int attackCount = 0;
+    [SerializeField] public bool isAttacking;
     [SerializeField] private bool attackBuffer;
 
     private void Awake()
@@ -66,7 +67,7 @@ public class PlayerController : MonoBehaviour
         //ySpeed = ySpeed * stats.speed;
 
         health = stats.health;
-
+        weaponController = weapon.GetComponent<WeaponController>();
         inputHandler = PlayerInputHandler.Instance;
         dashTime = 1;
         ySpeedTrue = ySpeed;
@@ -170,27 +171,28 @@ public class PlayerController : MonoBehaviour
     {
         attackTime -= Time.fixedDeltaTime;
 
-        if (attackTime <= 0 && attackBuffer == false)
+        if (attackTime <= 0 && attackBuffer == false || Parrying)
         {
             attackCount = 0;
-
+            isAttacking = false;
         }
 
         if (inputHandler.AttackTriggered || attackBuffer)
         {
 
-            if (attackCount < 4 && attackTime > 0f && attackTime < 0.3 && attackBuffer == false)
+            if (attackCount < 2 && attackTime > 0f && attackTime < 0.3 && attackBuffer == false && !Parrying)
             {
                 attackCount += 1;
                 attackBuffer = true;
             }
-            else if (attackCount >= 4)
+            else if (attackCount >= 2)
             {
                 attackCount = 0;
             }
 
-            if(attackTime <= 0 && attackBuffer == false)
+            if(attackTime <= 0 && attackBuffer == false && !Parrying)
             {
+                attackCount += 1;
                 canAttack = true;
             } 
             else
@@ -198,12 +200,13 @@ public class PlayerController : MonoBehaviour
                 canAttack = false;
             }
 
-            if(canAttack || attackBuffer && attackTime <= 0)
+            if(canAttack || attackBuffer && attackTime <= 0 && !Parrying)
             {
 
-                
+                weaponController.Attack(attackCount);
                 attackTime = 0.5f;
                 attackBuffer = false;
+                isAttacking = true;
                 
             }
 
