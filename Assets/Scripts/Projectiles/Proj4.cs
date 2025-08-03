@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Proj1 : MonoBehaviour
+public class Proj4 : MonoBehaviour
 {
     [SerializeField] private LayerMask whatIsGround;
     [SerializeField] private GameObject Proj2;
@@ -26,7 +26,6 @@ public class Proj1 : MonoBehaviour
         {
 
             Destroy(gameObject);
-            Instantiate(Proj2, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
         }
     }
 }

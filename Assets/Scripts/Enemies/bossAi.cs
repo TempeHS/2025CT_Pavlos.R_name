@@ -51,6 +51,11 @@ public class bossAi : MonoBehaviour
         radProj(10);
     }
 
+    void attack2()
+    {
+
+    }
+
     void radProj(int numProj)
     {
         Vector2 startPoint = transform.position;

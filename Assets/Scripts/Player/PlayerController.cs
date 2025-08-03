@@ -31,6 +31,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject weapon;
     private WeaponController weaponController;
 
+    private GameObject ParryPartObject;
+    public ParticleSystem ParryPart;
+
     public bool flipped;
 
     public float horizontalInput;
@@ -72,6 +75,7 @@ public class PlayerController : MonoBehaviour
         dashTime = 1;
         ySpeedTrue = ySpeed;
         flightTime = 2;
+        ParryPart = ParryPartObject.GetComponent<ParticleSystem>();
     }
 
     private void Update()
@@ -180,15 +184,15 @@ public class PlayerController : MonoBehaviour
         if (inputHandler.AttackTriggered || attackBuffer)
         {
 
-            if (attackCount < 2 && attackTime > 0f && attackTime < 0.3 && attackBuffer == false && !Parrying)
+            if (attackCount < 3 && attackTime > 0f && attackTime < 0.3 && attackBuffer == false && !Parrying)
             {
                 attackCount += 1;
                 attackBuffer = true;
             }
-            else if (attackCount >= 2)
+            /*else if (attackCount >= 2)
             {
                 attackCount = 0;
-            }
+            }*/
 
             if(attackTime <= 0 && attackBuffer == false && !Parrying)
             {
@@ -202,7 +206,10 @@ public class PlayerController : MonoBehaviour
 
             if(canAttack || attackBuffer && attackTime <= 0 && !Parrying)
             {
-
+                if(attackCount > 2)
+                {
+                    attackCount = 1;
+                }
                 weaponController.Attack(attackCount);
                 attackTime = 0.5f;
                 attackBuffer = false;
@@ -226,20 +233,37 @@ public class PlayerController : MonoBehaviour
             }
             else if (Parrying)
             {
+
                 hitStop.stop(stats.StopTime);
+                ParryPart.Play();
                 collision.gameObject.GetComponent<EnemyScript>().rb.AddForce(Vector3.Normalize(new Vector2(collision.transform.position.x - transform.position.x, collision.transform.position.y - transform.position.y / 1.5f)) * collision.gameObject.GetComponent<EnemyStats>().knockback);
                 Debug.Log("Parry");
             }
 
         }
-        
+
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
         if (collision.gameObject.TryGetComponent<Tags>(out var tags))
         {
+            Debug.Log("HasTags");
             if (tags.HasTag("Projectile"))
             {
-                health -= collision.gameObject.GetComponent<ProjStats>().damage;
-                Debug.Log("hurt");
-                Destroy(collision.gameObject);
+                if (!Parrying) 
+                {
+                    health -= collision.gameObject.GetComponent<ProjStats>().damage;
+                    Debug.Log("hurt");
+                    Destroy(collision.gameObject);
+                } else if(Parrying)
+                {
+                    hitStop.stop(stats.StopTime);
+                    Destroy(collision.gameObject);
+                }
+
+
+
             }
 
 

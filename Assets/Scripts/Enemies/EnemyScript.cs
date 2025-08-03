@@ -9,6 +9,7 @@ public class EnemyScript : MonoBehaviour
 {
     [SerializeField] private GameObject rangeAttack;
     private GameObject Player;
+    private EnemyStats stats;
     [Header("Stats")]
     [SerializeField] private float speed;
     [SerializeField] public float damage;
@@ -36,6 +37,13 @@ public class EnemyScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rangeAttack.GetComponent<BoxCollider2D>().enabled = false;
         rangeAttack.SetActive(false);
+
+        stats = GetComponent<EnemyStats>();
+
+        stats.health = health;
+        stats.damage = damage;
+        stats.knockback = knockback;
+        
     }
 
     // Update is called once per frame
@@ -90,6 +98,7 @@ public class EnemyScript : MonoBehaviour
             else
             {
                 usedKnockback = knockback;
+                stats.knockback = usedKnockback;
                 rb.AddForce(targetVelocity * speed);
             }
 
@@ -114,6 +123,7 @@ public class EnemyScript : MonoBehaviour
         if(knockIncrease)
         {
             usedKnockback = knockback * 5;
+            stats.knockback = usedKnockback;
             knockIncrease = false;
         }
 
