@@ -16,11 +16,11 @@ public class DoppleGanger : MonoBehaviour
 
     void Start()
     {
-        //gameObject.SetActive(false);
         value = 0f;
         Purple.SetColor("_Purple", Color.HSVToRGB(hue / 360, saturation / value, 0));
         bAi = boss.GetComponent<bossAi>();
-        StartSpread();
+        gameObject.SetActive(false);
+
     }
     // Update is called once per frame
     void Update()
@@ -36,6 +36,12 @@ public class DoppleGanger : MonoBehaviour
     {
         StartCoroutine(Spread());
     }
+
+    public void StartSpread2()
+    {
+        StartCoroutine(Spread2());
+    }
+
 
     IEnumerator Spread()
     {

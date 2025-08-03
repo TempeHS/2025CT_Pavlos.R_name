@@ -19,6 +19,7 @@ public class bossAi : MonoBehaviour
     private float attacktime;
 
     private bool attacking = false;
+    private int attackNum;
     private bool lineOfSight = false;
 
     
@@ -26,28 +27,43 @@ public class bossAi : MonoBehaviour
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
-        attack1();
+        attacking = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (attacking)
+        {
+            StartCoroutine(randAttack()); 
+        }
     }
 
     void FixedUpdate()
     {
-        RaycastHit2D ray = Physics2D.Raycast(transform.position, Player.transform.position - transform.position);
-        if (ray.collider != null)
-        {
-            lineOfSight = ray.collider.CompareTag("Player");
-            if (lineOfSight)
-            {
-                attacking = true;
-            }
-        }
+        
     }
 
+    IEnumerator randAttack()
+    {
+        attacking = false;
+
+        attackNum = Random.Range(1, 3);
+        if (attackNum == 1)
+        {
+            attack1();
+        }
+        else if (attackNum == 2)
+        {
+            attack2();
+        }
+        else if (attackNum == 3)
+        {
+            attack3();
+        }
+        yield return new WaitForSeconds(10f);
+        attacking = true;
+    }
     void attack1()
     {
         radProj(10);
@@ -57,6 +73,12 @@ public class bossAi : MonoBehaviour
     {
         Dopple.SetActive(true);
         DoppleScript.StartSpread();
+    }
+
+    void attack3()
+    {
+        Dopple.SetActive(true);
+        DoppleScript.StartSpread2();
     }
     public void attack2Con(int numProj)
     {
