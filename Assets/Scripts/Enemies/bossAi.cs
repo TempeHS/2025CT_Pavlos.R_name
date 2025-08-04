@@ -36,19 +36,21 @@ public class bossAi : MonoBehaviour
     void Update()
     {
         TextHealth.text = "Boss Health: " + health;
-        if(health <= 0) 
+
+    }
+
+
+
+    void FixedUpdate()
+    {
+        if (health <= 0)
         {
             Destroy(gameObject);
         }
         if (attacking)
         {
-            StartCoroutine(randAttack()); 
+            StartCoroutine(randAttack());
         }
-    }
-
-    void FixedUpdate()
-    {
-        
     }
 
     IEnumerator randAttack()

@@ -21,8 +21,13 @@ public class Proj2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
-        speed += Time.deltaTime / 5000;
+
+    }
+
+    private void FixedUpdate()
+    {
+        time += Time.fixedDeltaTime;
+        speed += Time.fixedDeltaTime / 500;
         if (time <= 4)
         {
             Vector2 move = new Vector2(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y);

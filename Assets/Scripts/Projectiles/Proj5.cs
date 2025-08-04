@@ -8,12 +8,14 @@ public class Proj5 : MonoBehaviour
     private float timer;
     
     [SerializeField] private GameObject Proj1;
+    [SerializeField] private GameObject Player;
 
     private bool attack;
     // Start is called before the first frame update
     void Start()
     { 
         attack = true;
+        Player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -23,19 +25,19 @@ public class Proj5 : MonoBehaviour
 
         if (timer >= 3   && attack == true)
         {
-            release(10);
+            StartCoroutine(release());
         }
     }
 
-    void release(/*int numProj*/)
+    IEnumerator release(/*int numProj*/)
     {
         Vector2 startPoint = transform.position;
         int radius = 1;
-        float angle = Mathf.Atan2(GameObject.Find("Player").transform.position.x - transform.position.x, GameObject.Find("Player").transform.position.y - transform.position.y);
-        float angleStep = 360f;
+        float angle = Mathf.Atan2(Player.transform.position.x - transform.position.x, Player.transform.position.y - transform.position.y) * Mathf.Rad2Deg;
         float moveSpeed = 20;
 
-        for (int i = 0; i <= 5 - 1; i++)
+        Debug.Log("Angle: " + angle);
+        for (int i = 0; i <= 1 - 1; i++)
         {
             float projectileDirXposition = transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
             float projectileDirYposition = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
@@ -46,7 +48,7 @@ public class Proj5 : MonoBehaviour
             var proj = Instantiate(Proj1, startPoint, Quaternion.identity);
             proj.GetComponent<Rigidbody2D>().velocity = new Vector2(projectileMoveDirection.x, projectileMoveDirection.y);
 
-            angle += angleStep;
+            yield return new WaitForSeconds(0.15f);
         }
 
         attack = false;
