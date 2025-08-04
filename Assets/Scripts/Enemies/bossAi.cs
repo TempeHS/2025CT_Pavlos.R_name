@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class bossAi : MonoBehaviour
 {
@@ -22,17 +23,23 @@ public class bossAi : MonoBehaviour
     private int attackNum;
     private bool lineOfSight = false;
 
-    
+    public TextMeshProUGUI TextHealth;
     // Start is called before the first frame update
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         attacking = true;
+        health = 150;
     }
 
     // Update is called once per frame
     void Update()
     {
+        TextHealth.text = "Boss Health: " + health;
+        if(health <= 0) 
+        {
+            Destroy(gameObject);
+        }
         if (attacking)
         {
             StartCoroutine(randAttack()); 
@@ -48,7 +55,7 @@ public class bossAi : MonoBehaviour
     {
         attacking = false;
 
-        attackNum = Random.Range(1, 3);
+        attackNum = Random.Range(1, 4);
         if (attackNum == 1)
         {
             attack1();
@@ -61,11 +68,12 @@ public class bossAi : MonoBehaviour
         {
             attack3();
         }
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(8f);
         attacking = true;
     }
     void attack1()
     {
+        
         radProj(10);
     }
 
@@ -138,5 +146,10 @@ public class bossAi : MonoBehaviour
         var proj = Instantiate(Proj2, startPoint, Quaternion.identity);
         proj.GetComponent<Rigidbody2D>().velocity = new Vector2(0, moveSpeed);
 
+    }
+
+    public void hurt(float damage) 
+    {
+        health -= damage;
     }
 }

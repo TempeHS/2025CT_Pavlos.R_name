@@ -25,6 +25,7 @@ public class WeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         SwingFrame = TAC.animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
         if (TAC.IsSwinging && TAC.SwingCount == 1)
         {

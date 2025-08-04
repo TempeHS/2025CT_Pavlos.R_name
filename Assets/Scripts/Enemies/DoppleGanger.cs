@@ -44,7 +44,8 @@ public class DoppleGanger : MonoBehaviour
 
 
     IEnumerator Spread()
-    {
+    { 
+        transform.position = Player.transform.position;
         for(int i = 0; i < 100; i++)
         {
             value = i;
@@ -67,6 +68,7 @@ public class DoppleGanger : MonoBehaviour
     }
     IEnumerator Spread2()
     {
+        transform.position = Player.transform.position;
         for (int i = 0; i < 100; i++)
         {
             value = i;
@@ -78,6 +80,18 @@ public class DoppleGanger : MonoBehaviour
         Purple.SetColor("_Purple", Color.HSVToRGB(hue / 360, saturation / 100, 0 / 100));
         boss.transform.position = transform.position;
 
+        bAi.attack2Con(3);
+        yield return new WaitForSeconds(.15f);
+        bAi.attack3Con(2);
+        yield return new WaitForSeconds(.15f);
+        bAi.attack2Con(3);
+        yield return new WaitForSeconds(.15f);
+        bAi.attack2Con(3);
+        yield return new WaitForSeconds(.15f);
+        bAi.attack3Con(2);
+        yield return new WaitForSeconds(.15f);
+        bAi.attack2Con(3);
+        yield return new WaitForSeconds(.15f);
         bAi.attack2Con(3);
         yield return new WaitForSeconds(.15f);
         bAi.attack3Con(2);

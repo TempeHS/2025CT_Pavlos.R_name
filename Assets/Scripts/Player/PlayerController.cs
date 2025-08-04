@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -53,6 +54,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public bool isAttacking;
     [SerializeField] private bool attackBuffer;
 
+    public TextMeshProUGUI TextHealth;
+
     private void Awake()
     {
         PlayerStats = GameObject.Find("PlayerStats");
@@ -82,6 +85,8 @@ public class PlayerController : MonoBehaviour
     {
         horizontalInput = inputHandler.MoveInput.x;
         verticalInput = inputHandler.MoveInput.y;
+        
+        TextHealth.text = "Health: " + health;
 
         if(health <= 0f) 
         {
