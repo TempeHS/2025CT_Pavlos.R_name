@@ -93,10 +93,10 @@ public class bossAi : MonoBehaviour
         Vector2 startPoint = transform.position;
         int radius = 1;
         float angle = 0f;
-        float angleStep = 90f / numProj;
+        float angleStep = 90f / (numProj - 1);
         float moveSpeed = 20;
 
-        angle = (Mathf.Atan2(Player.transform.position.x - transform.position.x, Player.transform.position.y - transform.position.y) * Mathf.Rad2Deg) - angleStep;
+        angle = (Mathf.Atan2(Player.transform.position.x - transform.position.x, Player.transform.position.y - transform.position.y) * Mathf.Rad2Deg) - 45;
 
         for (int i = 0; i <= numProj - 1; i++)
         {
@@ -117,10 +117,10 @@ public class bossAi : MonoBehaviour
         Vector2 startPoint = transform.position;
         int radius = 1;
         float angle = 0f;
-        float angleStep = 90f / 3;
+        float angleStep = 90f / (numProj - 1);
         float moveSpeed = 20;
 
-        angle = (Mathf.Atan2(Player.transform.position.x - transform.position.x, Player.transform.position.y - transform.position.y) * Mathf.Rad2Deg) - 15;
+        angle = (Mathf.Atan2(Player.transform.position.x - transform.position.x, Player.transform.position.y - transform.position.y) * Mathf.Rad2Deg) - 45;
 
         for (int i = 0; i <= numProj - 1; i++)
         {

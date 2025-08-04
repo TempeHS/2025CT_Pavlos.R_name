@@ -6,6 +6,7 @@ public class WeaponController : MonoBehaviour
 {
     [SerializeField] private GameObject Player;
     private BoxCollider2D BoxCol;
+    private PlayerController controller;
 
     [SerializeField] private float swingStrength;
     private float swingTime;
@@ -20,6 +21,7 @@ public class WeaponController : MonoBehaviour
         anim = GetComponent<Animator>();
         TAC = Player.GetComponentInChildren<TopAnimController>();
         BoxCol = GetComponent<BoxCollider2D>();
+        controller = Player.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -49,6 +51,14 @@ public class WeaponController : MonoBehaviour
             BoxCol.enabled = false;
             SwingFrame = 0;
             swingCount = 1;
+        }
+
+        if(controller.flipped)
+        {
+            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+        } else
+        {
+            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
         }
 
         anim.SetBool("IsSwinging", TAC.IsSwinging);

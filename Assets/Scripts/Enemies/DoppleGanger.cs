@@ -80,24 +80,11 @@ public class DoppleGanger : MonoBehaviour
         Purple.SetColor("_Purple", Color.HSVToRGB(hue / 360, saturation / 100, 0 / 100));
         boss.transform.position = transform.position;
 
-        bAi.attack2Con(3);
-        yield return new WaitForSeconds(.15f);
-        bAi.attack3Con(2);
-        yield return new WaitForSeconds(.15f);
-        bAi.attack2Con(3);
-        yield return new WaitForSeconds(.15f);
-        bAi.attack2Con(3);
-        yield return new WaitForSeconds(.15f);
-        bAi.attack3Con(2);
-        yield return new WaitForSeconds(.15f);
-        bAi.attack2Con(3);
-        yield return new WaitForSeconds(.15f);
-        bAi.attack2Con(3);
-        yield return new WaitForSeconds(.15f);
-        bAi.attack3Con(2);
-        yield return new WaitForSeconds(.15f);
-        bAi.attack2Con(3);
-        yield return new WaitForSeconds(.15f);
+        for(int i = 0; i < 15; i++)
+        {
+            bAi.attack2Con(Random.Range(3, 7));
+            yield return new WaitForSeconds(.2f);
+        }
         gameObject.SetActive(false);
 
     }
@@ -118,7 +105,7 @@ public class DoppleGanger : MonoBehaviour
             for (int j = 0; j < 3; j++)
             {
                 bAi.attack2Con(3);
-                yield return new WaitForSeconds(.15f);
+                yield return new WaitForSeconds(.1f);
             }
 
             value = 0f;

@@ -21,7 +21,7 @@ public class Proj4 : MonoBehaviour
 
     IEnumerator DeathTime()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(10f);
         Destroy(gameObject);
     }
 }
