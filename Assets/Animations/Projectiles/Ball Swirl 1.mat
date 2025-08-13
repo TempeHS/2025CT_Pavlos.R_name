@@ -54,8 +54,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Radius: 0.8
-    - _strength: 0
+    - _Radius: -0.000000037252903
+    - _strength: -0.000000037252903
     m_Colors:
     - _Moving: {r: 0.25, g: 0.25, b: 0, a: 0}
     - _Moving_1: {r: 0.5, g: 0.5, b: 0, a: 0}

@@ -90,6 +90,14 @@ public class bossAi : MonoBehaviour
         Dopple.SetActive(true);
         DoppleScript.StartSpread2();
     }
+
+    void attack4()
+    {
+        int spawnSpot;
+        spawnSpot = Random.Range(1, 361);
+        new Vector2();
+        Instantiate(Proj3, vector3.zero, Quarternion.identity);
+    }
     public void attack2Con(int numProj)
     {
         Vector2 startPoint = transform.position;
