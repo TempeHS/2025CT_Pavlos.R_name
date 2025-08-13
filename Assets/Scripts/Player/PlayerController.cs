@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
 
         if (dashTime > 0)
         {
-            dashTime -= Time.deltaTime;
+            dashTime -= Time.fixedDeltaTime;
         } else
         {
             canDash = true;
