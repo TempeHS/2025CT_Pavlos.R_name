@@ -14,10 +14,19 @@ public class Proj5 : MonoBehaviour
     [SerializeField] private GameObject Proj3;
     [SerializeField] private GameObject Proj4;
 
+    private SpriteRenderer rend;
+
     private bool attack;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        rend = GetComponent<SpriteRenderer>();
+        rend.material = new Material(rend.material);
+    }
     void Start()
     {
+        swirl = rend.material;
         attack = true;
         Player = GameObject.Find("Player");
         StartCoroutine(release());
@@ -52,23 +61,9 @@ public class Proj5 : MonoBehaviour
                 strong += 0.05f;
                 swirl.SetFloat("_strength", strong);
                 swirl.SetFloat("_Radius", strong);
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.0125f);
             }
 
-            Debug.Log("Angle: " + angle);
-            for (int i = 0; i <= 4; i++)
-            {
-                float projectileDirXposition = transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
-                float projectileDirYposition = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
-
-                Vector2 projectileVector = new Vector2(projectileDirXposition, projectileDirYposition);
-                Vector2 projectileMoveDirection = (projectileVector - startPoint).normalized * moveSpeed;
-
-                var proj = Instantiate(Proj1, startPoint, Quaternion.identity);
-                proj.GetComponent<Rigidbody2D>().velocity = new Vector2(projectileMoveDirection.x, projectileMoveDirection.y);
-
-                yield return new WaitForSeconds(0.075f);
-            }
 
             float radius2 = 12;
             int angle2;
@@ -91,6 +86,22 @@ public class Proj5 : MonoBehaviour
             proj2.GetComponent<Proj5>().Boss = Boss;
 
 
+
+            Debug.Log("Angle: " + angle);
+            for (int i = 0; i <= 4; i++)
+            {
+                float projectileDirXposition = transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
+                float projectileDirYposition = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
+
+                Vector2 projectileVector = new Vector2(projectileDirXposition, projectileDirYposition);
+                Vector2 projectileMoveDirection = (projectileVector - startPoint).normalized * moveSpeed;
+
+                var proj = Instantiate(Proj1, startPoint, Quaternion.identity);
+                proj.GetComponent<Rigidbody2D>().velocity = new Vector2(projectileMoveDirection.x, projectileMoveDirection.y);
+
+                yield return new WaitForSeconds(0.075f);
+            }
+
             for (int i = 0; i <= 20; i++)
             {
 
@@ -98,7 +109,7 @@ public class Proj5 : MonoBehaviour
                 strong -= 0.05f;
                 swirl.SetFloat("_strength", strong);
                 swirl.SetFloat("_Radius", strong);
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.0125f);
             }
 
             attack = false;
@@ -120,8 +131,9 @@ public class Proj5 : MonoBehaviour
                 strong += 0.05f;
                 swirl.SetFloat("_strength", strong);
                 swirl.SetFloat("_Radius", strong);
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.0125f);
             }
+
 
             Debug.Log("Angle: " + angle);
             for (int i = 0; i <= 4; i++)
@@ -146,7 +158,7 @@ public class Proj5 : MonoBehaviour
                 strong -= 0.05f;
                 swirl.SetFloat("_strength", strong);
                 swirl.SetFloat("_Radius", strong);
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.0125f);
             }
 
             attack = false;

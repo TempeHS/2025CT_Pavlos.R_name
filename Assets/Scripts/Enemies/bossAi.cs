@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Tilemaps;
 
 public class bossAi : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class bossAi : MonoBehaviour
     [SerializeField] private GameObject Proj4;
     [SerializeField] private GameObject Dopple;
     [SerializeField] private DoppleGanger DoppleScript;
+    [SerializeField] private Tilemap FloorTile;
+    [SerializeField] private bool floorFade;
+
+    private Color currentFloorColor;
 
     public bool Proj4Attack;
 
@@ -35,6 +40,7 @@ public class bossAi : MonoBehaviour
         attacking = true;
         health = 150;
         Proj4Attack = false;
+        floorFade = false;
 }
 
     // Update is called once per frame
@@ -56,13 +62,25 @@ public class bossAi : MonoBehaviour
         {
             StartCoroutine(randAttack());
         }
+
+        if(floorFade && currentFloorColor.a > 0)
+        {
+            currentFloorColor = FloorTile.color;
+            currentFloorColor.a -= Time.deltaTime;
+            FloorTile.color = currentFloorColor;
+        } else if (!floorFade && currentFloorColor.a < 1)
+        {
+            currentFloorColor = FloorTile.color;
+            currentFloorColor.a += Time.deltaTime;
+            FloorTile.color = currentFloorColor;
+        }
     }
 
     IEnumerator randAttack()
     {
         attacking = false;
 
-        attackNum = Random.Range(4, 5);
+        attackNum = Random.Range(1, 5);
         if (attackNum == 1)
         {
             attack1();
@@ -76,7 +94,7 @@ public class bossAi : MonoBehaviour
             attack3();
         } else if (attackNum == 4)
         {
-            attack4();
+            StartCoroutine(attack4());
         }
             
         yield return new WaitForSeconds(8f);
@@ -100,8 +118,10 @@ public class bossAi : MonoBehaviour
         DoppleScript.StartSpread2();
     }
 
-    void attack4()
+    private IEnumerator attack4()
     {
+        floorFade = true;
+        yield return new WaitForSeconds(1);
         Proj4Attack = true;
         float radius = 12;
         int angle;
@@ -128,8 +148,11 @@ public class bossAi : MonoBehaviour
 
     private IEnumerator Proj4Time()
     {
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(4);
         Proj4Attack = false;
+
+        yield return new WaitForSeconds(1);
+        floorFade = false;
     }
     public void attack2Con(int numProj)
     {
