@@ -14,6 +14,7 @@ public class bossAi : MonoBehaviour
     [SerializeField] public float health;
     [SerializeField] private GameObject Proj1;
     [SerializeField] private GameObject Proj2;
+        [SerializeField] private GameObject Proj3;
     [SerializeField] private GameObject Dopple;
     [SerializeField] private DoppleGanger DoppleScript;
 
@@ -96,7 +97,7 @@ public class bossAi : MonoBehaviour
         int spawnSpot;
         spawnSpot = Random.Range(1, 361);
         new Vector2();
-        Instantiate(Proj3, vector3.zero, Quarternion.identity);
+        Instantiate(Proj3, Vector3.zero, Quaternion.identity);
     }
     public void attack2Con(int numProj)
     {
