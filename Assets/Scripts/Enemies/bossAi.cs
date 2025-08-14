@@ -14,9 +14,12 @@ public class bossAi : MonoBehaviour
     [SerializeField] public float health;
     [SerializeField] private GameObject Proj1;
     [SerializeField] private GameObject Proj2;
-        [SerializeField] private GameObject Proj3;
+    [SerializeField] private GameObject Proj3;
+    [SerializeField] private GameObject Proj4;
     [SerializeField] private GameObject Dopple;
     [SerializeField] private DoppleGanger DoppleScript;
+
+    public bool Proj4Attack;
 
     private float attacktime;
 
@@ -31,7 +34,8 @@ public class bossAi : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         attacking = true;
         health = 150;
-    }
+        Proj4Attack = false;
+}
 
     // Update is called once per frame
     void Update()
@@ -58,7 +62,7 @@ public class bossAi : MonoBehaviour
     {
         attacking = false;
 
-        attackNum = Random.Range(1, 4);
+        attackNum = Random.Range(4, 5);
         if (attackNum == 1)
         {
             attack1();
@@ -70,7 +74,11 @@ public class bossAi : MonoBehaviour
         else if (attackNum == 3)
         {
             attack3();
+        } else if (attackNum == 4)
+        {
+            attack4();
         }
+            
         yield return new WaitForSeconds(8f);
         attacking = true;
     }
@@ -94,10 +102,34 @@ public class bossAi : MonoBehaviour
 
     void attack4()
     {
-        int spawnSpot;
-        spawnSpot = Random.Range(1, 361);
-        new Vector2();
-        Instantiate(Proj3, Vector3.zero, Quaternion.identity);
+        Proj4Attack = true;
+        float radius = 12;
+        int angle;
+        angle = Random.Range(1, 361);
+
+        Debug.Log("attack4");
+
+        float projectileDirXposition = Player.transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
+        float projectileDirYposition = Player.transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
+
+        float negProjectileDirXposition = Player.transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius * -1;
+        float negProjectileDirYposition = Player.transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius * -1;
+
+        Vector2 spawnPoint = new Vector2(projectileDirXposition, projectileDirYposition);
+        Vector2 negSpawnPoint = new Vector2(negProjectileDirXposition, negProjectileDirYposition);
+
+        var proj = Instantiate(Proj3, spawnPoint, Quaternion.identity);
+        Instantiate(Proj4, negSpawnPoint, Quaternion.identity);
+
+        proj.GetComponent<Proj5>().Boss = this;
+
+        StartCoroutine(Proj4Time());
+    }
+
+    private IEnumerator Proj4Time()
+    {
+        yield return new WaitForSeconds(6);
+        Proj4Attack = false;
     }
     public void attack2Con(int numProj)
     {

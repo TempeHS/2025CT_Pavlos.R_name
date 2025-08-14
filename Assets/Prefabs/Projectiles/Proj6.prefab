@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 9096653333974441828}
   - component: {fileID: 2417002272676905248}
   - component: {fileID: 4097519309196125984}
-  - component: {fileID: -1514432115126584440}
+  - component: {fileID: 5314191566680518787}
   m_Layer: 0
-  m_Name: Proj5
+  m_Name: Proj6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tags:
   - {fileID: 11400000, guid: 24ba776fb2e1cbe4cbc0075bf9a74529, type: 2}
-  - {fileID: 11400000, guid: 714f6eb712da94649bf8e0421b963d4e, type: 2}
+  - {fileID: 11400000, guid: 8318dcf00ff52fa4d8c64bef0730da5f, type: 2}
 --- !u!114 &2417002272676905248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,7 +143,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-1514432115126584440
+--- !u!114 &5314191566680518787
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,12 +152,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 822836606282734490}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f02fa083a1f2c134495b65ae22138541, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e056fa22a439b14f96b4cde4abfd135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swirl: {fileID: 2100000, guid: 50e5c3a735d51cf46ab660d62a2162aa, type: 2}
-  Proj1: {fileID: 8533107004475504771, guid: 9674aa574dce4c3449018ff0c14f4c69, type: 3}
-  Player: {fileID: 0}
-  Boss: {fileID: 0}
-  Proj3: {fileID: 822836606282734490}
-  Proj4: {fileID: 822836606282734490, guid: 509863b99316da440916298cdc246a45, type: 3}
