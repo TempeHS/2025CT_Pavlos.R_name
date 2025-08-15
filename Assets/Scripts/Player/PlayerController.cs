@@ -265,7 +265,7 @@ public class PlayerController : MonoBehaviour
                 } else if(Parrying)
                 {
                     ParryPart.Play();
-                    hitStop.stop(stats.StopTime);
+                    //hitStop.stop(stats.StopTime);
                     Destroy(collision.gameObject);
                 }
 

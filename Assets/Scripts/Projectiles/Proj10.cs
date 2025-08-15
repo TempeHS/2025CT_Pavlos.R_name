@@ -46,9 +46,12 @@ public class Proj10 : MonoBehaviour
     IEnumerator release(/*int numProj*/)
     {
 
+            yield return new WaitForSeconds(2.5f);
+        
             Vector2 startPoint = transform.position;
             int radius = 1;
             float angle = 0;
+            float angleStep = 5f;
             float moveSpeed = 60;
             float strong = 0;
             swirl.SetFloat("_strength", 0);
@@ -66,22 +69,28 @@ public class Proj10 : MonoBehaviour
         }
 
 
-            Debug.Log("Angle: " + angle);
-            for (int i = 0; i <= 8; i++)
+            for (int i = 0; i <= 100; i++)
             {
                 float projectileDirXposition = transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
                 float projectileDirYposition = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
 
-                float negProjectileDirXposition = PlayerPoint.x + Mathf.Sin(((angle + 180) * Mathf.PI) / 180) * radius * -1;
-                float negProjectileDirYposition = PlayerPoint.y + Mathf.Cos(((angle + 180) * Mathf.PI) / 180) * radius * -1;
+                float negProjectileDirXposition = transform.position.x + Mathf.Cos(((angle + 90) * Mathf.PI) / 180) * radius;
+                float negProjectileDirYposition = transform.position.y + Mathf.Sin(((angle + 90) * Mathf.PI) / 180) * radius;
 
                 Vector2 projectileVector = new Vector2(projectileDirXposition, projectileDirYposition);
                 Vector2 projectileMoveDirection = (projectileVector - startPoint).normalized * moveSpeed;
 
+                Vector2 negProjectileVector = new Vector2(negProjectileDirXposition, negProjectileDirYposition);
+                Vector2 negProjectileMoveDirection = (negProjectileVector - startPoint).normalized * moveSpeed;
+
                 var proj = Instantiate(Proj1, startPoint, Quaternion.identity);
                 proj.GetComponent<Rigidbody2D>().velocity = new Vector2(projectileMoveDirection.x, projectileMoveDirection.y);
 
-                yield return new WaitForSeconds(0.0375f);
+                var proj2 = Instantiate(Proj1, startPoint, Quaternion.identity);
+                proj2.GetComponent<Rigidbody2D>().velocity = new Vector2(negProjectileMoveDirection.x, negProjectileMoveDirection.y);
+
+                yield return new WaitForSeconds(0.04f);
+                angle += angleStep;
             }
 
 

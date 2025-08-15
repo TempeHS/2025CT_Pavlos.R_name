@@ -19,7 +19,7 @@ public class Proj9 : MonoBehaviour
 
     IEnumerator DeathTime()
     {
-        yield return new WaitForSeconds(0.39f);
+        yield return new WaitForSeconds(0.35f);
         Destroy(gameObject);
     }
 }

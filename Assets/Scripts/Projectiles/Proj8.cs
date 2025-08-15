@@ -67,7 +67,7 @@ public class Proj8 : MonoBehaviour
 
 
             Debug.Log("Angle: " + angle);
-            for (int i = 0; i <= 8; i++)
+            for (int i = 0; i <= 1; i++)
             {
                 float projectileDirXposition = transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
                 float projectileDirYposition = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;

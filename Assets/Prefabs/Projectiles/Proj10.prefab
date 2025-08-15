@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9096653333974441828}
   - component: {fileID: 2417002272676905248}
   - component: {fileID: 4097519309196125984}
-  - component: {fileID: 3180150531984492401}
+  - component: {fileID: -3805460636971137727}
   m_Layer: 0
   m_Name: Proj10
   m_TagString: Untagged
@@ -143,7 +143,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3180150531984492401
+--- !u!114 &-3805460636971137727
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 822836606282734490}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f37b49544855ce44a5e8a410b9531d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 94af9103a5eb5d04d849605ff1ddc8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   swirl: {fileID: 0}

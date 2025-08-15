@@ -84,7 +84,7 @@ public class bossAi : MonoBehaviour
     {
         attacking = false;
 
-        attackNum = Random.Range(5, 6);
+        attackNum = Random.Range(6, 7);
         if (attackNum == 1)
         {
             attack1();
@@ -104,6 +104,10 @@ public class bossAi : MonoBehaviour
         else if (attackNum == 5)
         {
             StartCoroutine(attack5());
+        }
+        else if (attackNum == 6)
+        {
+            StartCoroutine(attack6());
         }
 
         yield return new WaitForSeconds(8f);
@@ -160,14 +164,14 @@ public class bossAi : MonoBehaviour
         floorFade = true;
         yield return new WaitForSeconds(1);
         //Proj4Attack = true;
-        float radius = 12;
+        float radius = 20;
         int angle;
         angle = Random.Range(1, 361);
-        int angleStep = 15;
+        int angleStep = 7;
 
         Vector2 PlayerPoint = Player.transform.position;
         StartCoroutine(Proj4Time());
-        for (int i = 0; i < 48; i++)
+        for (int i = 0; i < 96; i++)
         {
             float projectileDirXposition = PlayerPoint.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
             float projectileDirYposition = PlayerPoint.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
@@ -180,16 +184,20 @@ public class bossAi : MonoBehaviour
             Vector2 negSpawnPoint = new Vector2(negProjectileDirXposition, negProjectileDirYposition);
 
             var proj = Instantiate(Proj5, spawnPoint, Quaternion.identity);
-            Instantiate(Proj4, negSpawnPoint, Quaternion.identity);
+            var proj2 = Instantiate(Proj5, negSpawnPoint, Quaternion.identity);
+
             proj.GetComponent<Proj8>().Boss = this;
             proj.GetComponent<Proj8>().PlayerPoint = PlayerPoint;
+            proj2.GetComponent<Proj8>().Boss = this;
+            proj2.GetComponent<Proj8>().PlayerPoint = PlayerPoint;
+            Instantiate(Proj4, PlayerPoint, Quaternion.identity);
 
             angle += angleStep;
-            yield return new WaitForSeconds(0.083f);
+            yield return new WaitForSeconds(0.04f);
         }
     }
 
-    void attack6()
+    private IEnumerator attack6()
     {
         Vector2 startPoint = transform.position;
         float moveSpeed = 10;
@@ -197,6 +205,10 @@ public class bossAi : MonoBehaviour
 
         var proj = Instantiate(Proj6, startPoint, Quaternion.identity);
         proj.GetComponent<Rigidbody2D>().velocity = new Vector2(0, moveSpeed);
+
+        yield return new WaitForSeconds(2);
+
+        proj.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 
     }
 
