@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Proj8 : MonoBehaviour
+public class Proj10 : MonoBehaviour
 {
 
     private float timer;
@@ -48,7 +48,7 @@ public class Proj8 : MonoBehaviour
 
             Vector2 startPoint = transform.position;
             int radius = 1;
-            float angle = Mathf.Atan2(PlayerPoint.x - transform.position.x, PlayerPoint.y - transform.position.y) * Mathf.Rad2Deg;
+            float angle = 0;
             float moveSpeed = 60;
             float strong = 0;
             swirl.SetFloat("_strength", 0);
@@ -71,6 +71,9 @@ public class Proj8 : MonoBehaviour
             {
                 float projectileDirXposition = transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
                 float projectileDirYposition = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
+
+                float negProjectileDirXposition = PlayerPoint.x + Mathf.Sin(((angle + 180) * Mathf.PI) / 180) * radius * -1;
+                float negProjectileDirYposition = PlayerPoint.y + Mathf.Cos(((angle + 180) * Mathf.PI) / 180) * radius * -1;
 
                 Vector2 projectileVector = new Vector2(projectileDirXposition, projectileDirYposition);
                 Vector2 projectileMoveDirection = (projectileVector - startPoint).normalized * moveSpeed;

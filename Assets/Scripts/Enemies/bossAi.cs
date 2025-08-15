@@ -18,6 +18,7 @@ public class bossAi : MonoBehaviour
     [SerializeField] private GameObject Proj3;
     [SerializeField] private GameObject Proj4;
     [SerializeField] private GameObject Proj5;
+    [SerializeField] private GameObject Proj6;
     [SerializeField] private GameObject Dopple;
     [SerializeField] private DoppleGanger DoppleScript;
     [SerializeField] private Tilemap FloorTile;
@@ -66,11 +67,13 @@ public class bossAi : MonoBehaviour
 
         if(floorFade && currentFloorColor.a > 0)
         {
+
             currentFloorColor = FloorTile.color;
             currentFloorColor.a -= Time.fixedDeltaTime;
             FloorTile.color = currentFloorColor;
         } else if (!floorFade && currentFloorColor.a < 1)
         {
+
             currentFloorColor = FloorTile.color;
             currentFloorColor.a += Time.fixedDeltaTime;
             FloorTile.color = currentFloorColor;
@@ -162,15 +165,15 @@ public class bossAi : MonoBehaviour
         angle = Random.Range(1, 361);
         int angleStep = 15;
 
-        Vector2 spawnPoint = Player.transform.position;
+        Vector2 PlayerPoint = Player.transform.position;
         StartCoroutine(Proj4Time());
         for (int i = 0; i < 48; i++)
         {
-            float projectileDirXposition = Player.transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
-            float projectileDirYposition = Player.transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
+            float projectileDirXposition = PlayerPoint.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
+            float projectileDirYposition = PlayerPoint.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
 
-            float negProjectileDirXposition = Player.transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius * -1;
-            float negProjectileDirYposition = Player.transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius * -1;
+            float negProjectileDirXposition = PlayerPoint.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius * -1;
+            float negProjectileDirYposition = PlayerPoint.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius * -1;
 
 
             Vector2 spawnPoint = new Vector2(projectileDirXposition, projectileDirYposition);
@@ -178,22 +181,30 @@ public class bossAi : MonoBehaviour
 
             var proj = Instantiate(Proj5, spawnPoint, Quaternion.identity);
             Instantiate(Proj4, negSpawnPoint, Quaternion.identity);
-            //proj.GetComponent<Proj8>().Boss = this;
+            proj.GetComponent<Proj8>().Boss = this;
+            proj.GetComponent<Proj8>().PlayerPoint = PlayerPoint;
 
             angle += angleStep;
             yield return new WaitForSeconds(0.083f);
         }
+    }
+
+    void attack6()
+    {
+        Vector2 startPoint = transform.position;
+        float moveSpeed = 10;
 
 
+        var proj = Instantiate(Proj6, startPoint, Quaternion.identity);
+        proj.GetComponent<Rigidbody2D>().velocity = new Vector2(0, moveSpeed);
 
-
-        StartCoroutine(Proj4Time());
     }
 
     private IEnumerator Proj4Time()
     {
         yield return new WaitForSeconds(4);
         Proj4Attack = false;
+        Debug.Log("attack false");
 
         yield return new WaitForSeconds(1);
         floorFade = false;
