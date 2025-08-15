@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -270,12 +271,25 @@ public class PlayerController : MonoBehaviour
 
 
 
+            } else if(tags.HasTag("Boss Door"))
+            {
+                StartCoroutine(BossTransport());
+
             }
 
 
         }
     }
 
+    private IEnumerator BossTransport()
+    {
+
+
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(1);
+        Destroy(gameObject);
+
+    }
     void flip()
     {
         if (horizontalInput < 0)

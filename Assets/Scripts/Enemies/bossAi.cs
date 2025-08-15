@@ -17,6 +17,7 @@ public class bossAi : MonoBehaviour
     [SerializeField] private GameObject Proj2;
     [SerializeField] private GameObject Proj3;
     [SerializeField] private GameObject Proj4;
+    [SerializeField] private GameObject Proj5;
     [SerializeField] private GameObject Dopple;
     [SerializeField] private DoppleGanger DoppleScript;
     [SerializeField] private Tilemap FloorTile;
@@ -66,12 +67,12 @@ public class bossAi : MonoBehaviour
         if(floorFade && currentFloorColor.a > 0)
         {
             currentFloorColor = FloorTile.color;
-            currentFloorColor.a -= Time.deltaTime;
+            currentFloorColor.a -= Time.fixedDeltaTime;
             FloorTile.color = currentFloorColor;
         } else if (!floorFade && currentFloorColor.a < 1)
         {
             currentFloorColor = FloorTile.color;
-            currentFloorColor.a += Time.deltaTime;
+            currentFloorColor.a += Time.fixedDeltaTime;
             FloorTile.color = currentFloorColor;
         }
     }
@@ -80,7 +81,7 @@ public class bossAi : MonoBehaviour
     {
         attacking = false;
 
-        attackNum = Random.Range(1, 5);
+        attackNum = Random.Range(5, 6);
         if (attackNum == 1)
         {
             attack1();
@@ -92,11 +93,16 @@ public class bossAi : MonoBehaviour
         else if (attackNum == 3)
         {
             attack3();
-        } else if (attackNum == 4)
+        } 
+        else if (attackNum == 4)
         {
             StartCoroutine(attack4());
         }
-            
+        else if (attackNum == 5)
+        {
+            StartCoroutine(attack5());
+        }
+
         yield return new WaitForSeconds(8f);
         attacking = true;
     }
@@ -146,6 +152,44 @@ public class bossAi : MonoBehaviour
         StartCoroutine(Proj4Time());
     }
 
+    private IEnumerator attack5()
+    {
+        floorFade = true;
+        yield return new WaitForSeconds(1);
+        //Proj4Attack = true;
+        float radius = 12;
+        int angle;
+        angle = Random.Range(1, 361);
+        int angleStep = 15;
+
+        Vector2 spawnPoint = Player.transform.position;
+        StartCoroutine(Proj4Time());
+        for (int i = 0; i < 48; i++)
+        {
+            float projectileDirXposition = Player.transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
+            float projectileDirYposition = Player.transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
+
+            float negProjectileDirXposition = Player.transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius * -1;
+            float negProjectileDirYposition = Player.transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius * -1;
+
+
+            Vector2 spawnPoint = new Vector2(projectileDirXposition, projectileDirYposition);
+            Vector2 negSpawnPoint = new Vector2(negProjectileDirXposition, negProjectileDirYposition);
+
+            var proj = Instantiate(Proj5, spawnPoint, Quaternion.identity);
+            Instantiate(Proj4, negSpawnPoint, Quaternion.identity);
+            //proj.GetComponent<Proj8>().Boss = this;
+
+            angle += angleStep;
+            yield return new WaitForSeconds(0.083f);
+        }
+
+
+
+
+        StartCoroutine(Proj4Time());
+    }
+
     private IEnumerator Proj4Time()
     {
         yield return new WaitForSeconds(4);
@@ -154,6 +198,8 @@ public class bossAi : MonoBehaviour
         yield return new WaitForSeconds(1);
         floorFade = false;
     }
+
+
     public void attack2Con(int numProj)
     {
         Vector2 startPoint = transform.position;
