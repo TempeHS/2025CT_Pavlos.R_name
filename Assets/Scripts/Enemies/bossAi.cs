@@ -24,6 +24,11 @@ public class bossAi : MonoBehaviour
     [SerializeField] private Tilemap FloorTile;
     [SerializeField] private bool floorFade;
 
+    [SerializeField] private Material bossMat;
+    private SpriteRenderer rend;
+
+    private Vector2 playerPos;
+
     private Color currentFloorColor;
 
     public bool Proj4Attack;
@@ -36,8 +41,14 @@ public class bossAi : MonoBehaviour
 
     public TextMeshProUGUI TextHealth;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        rend = GetComponent<SpriteRenderer>();
+        rend.material = new Material(rend.material);
+    }
     void Start()
     {
+        bossMat = rend.material;
         Player = GameObject.FindGameObjectWithTag("Player");
         attacking = true;
         health = 150;
@@ -70,13 +81,24 @@ public class bossAi : MonoBehaviour
 
             currentFloorColor = FloorTile.color;
             currentFloorColor.a -= Time.fixedDeltaTime;
+            bossMat.SetFloat("_Alpha", currentFloorColor.a);
             FloorTile.color = currentFloorColor;
+
         } else if (!floorFade && currentFloorColor.a < 1)
         {
 
             currentFloorColor = FloorTile.color;
             currentFloorColor.a += Time.fixedDeltaTime;
+            bossMat.SetFloat("_Alpha", currentFloorColor.a);
             FloorTile.color = currentFloorColor;
+        }
+
+        if(currentFloorColor.a <= 0)
+        {
+            FloorTile.gameObject.SetActive(false);
+        } else
+        {
+            FloorTile.gameObject.SetActive(true);
         }
     }
 
@@ -84,7 +106,7 @@ public class bossAi : MonoBehaviour
     {
         attacking = false;
 
-        attackNum = Random.Range(6, 7);
+        attackNum = Random.Range(1, 7);
         if (attackNum == 1)
         {
             attack1();
@@ -110,7 +132,7 @@ public class bossAi : MonoBehaviour
             StartCoroutine(attack6());
         }
 
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(9f);
         attacking = true;
     }
     void attack1()
@@ -135,6 +157,9 @@ public class bossAi : MonoBehaviour
     {
         floorFade = true;
         yield return new WaitForSeconds(1);
+
+        playerPos = Player.transform.position;
+
         Proj4Attack = true;
         float radius = 12;
         int angle;
@@ -163,6 +188,9 @@ public class bossAi : MonoBehaviour
     {
         floorFade = true;
         yield return new WaitForSeconds(1);
+
+        playerPos = Player.transform.position;
+
         //Proj4Attack = true;
         float radius = 20;
         int angle;
@@ -218,7 +246,9 @@ public class bossAi : MonoBehaviour
         Proj4Attack = false;
         Debug.Log("attack false");
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.95f);
+        Player.transform.position = playerPos;
+        yield return new WaitForSeconds(0.05f);
         floorFade = false;
     }
 
