@@ -106,7 +106,7 @@ public class bossAi : MonoBehaviour
     {
         attacking = false;
 
-        attackNum = Random.Range(1, 7);
+        attackNum = Random.Range(1, 8);
         if (attackNum == 1)
         {
             attack1();
@@ -130,6 +130,10 @@ public class bossAi : MonoBehaviour
         else if (attackNum == 6)
         {
             StartCoroutine(attack6());
+        }
+        else if (attackNum == 7)
+        {
+            StartCoroutine(attack7());
         }
 
         yield return new WaitForSeconds(9f);
@@ -238,6 +242,64 @@ public class bossAi : MonoBehaviour
 
         proj.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 
+    }
+
+    private IEnumerator attack7()
+    {
+        floorFade = true;
+        yield return new WaitForSeconds(1);
+
+        playerPos = Player.transform.position;
+
+        //Proj4Attack = true;
+        float radius = 20;
+        int angle;
+        angle = Random.Range(1, 361);
+        int angleStep = 7;
+
+        Vector2 PlayerPoint = Player.transform.position;
+        StartCoroutine(Proj4Time());
+        for (int i = 0; i < 48; i++)
+        {
+            float projectileDirXposition = PlayerPoint.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
+            float projectileDirYposition = PlayerPoint.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
+
+            float negProjectileDirXposition = PlayerPoint.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius * -1;
+            float negProjectileDirYposition = PlayerPoint.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius * -1;
+
+            float projectileDirXposition2 = PlayerPoint.x + Mathf.Sin(((angle + 90) * Mathf.PI) / 180) * radius;
+            float projectileDirYposition2 = PlayerPoint.y + Mathf.Cos(((angle + 90) * Mathf.PI) / 180) * radius;
+
+            float negProjectileDirXposition2 = PlayerPoint.x + Mathf.Sin(((angle + 90) * Mathf.PI) / 180) * radius * -1f;
+            float negProjectileDirYposition2 = PlayerPoint.y + Mathf.Cos(((angle + 90) * Mathf.PI) / 180) * radius * -1f;
+
+
+            Vector2 spawnPoint = new Vector2(projectileDirXposition, projectileDirYposition);
+            Vector2 negSpawnPoint = new Vector2(negProjectileDirXposition, negProjectileDirYposition);
+
+            Vector2 spawnPoint2 = new Vector2(projectileDirXposition2, projectileDirYposition2);
+            Vector2 negSpawnPoint2 = new Vector2(negProjectileDirXposition2, negProjectileDirYposition2);
+
+            var proj = Instantiate(Proj5, spawnPoint, Quaternion.identity);
+            var proj2 = Instantiate(Proj5, negSpawnPoint, Quaternion.identity);
+
+            var proj3 = Instantiate(Proj5, spawnPoint2, Quaternion.identity);
+            var proj4 = Instantiate(Proj5, negSpawnPoint2, Quaternion.identity);
+
+            proj.GetComponent<Proj8>().Boss = this;
+            proj.GetComponent<Proj8>().PlayerPoint = PlayerPoint;
+            proj2.GetComponent<Proj8>().Boss = this;
+            proj2.GetComponent<Proj8>().PlayerPoint = PlayerPoint;
+
+            proj3.GetComponent<Proj8>().Boss = this;
+            proj3.GetComponent<Proj8>().PlayerPoint = PlayerPoint;
+            proj4.GetComponent<Proj8>().Boss = this;
+            proj4.GetComponent<Proj8>().PlayerPoint = PlayerPoint;
+            Instantiate(Proj4, PlayerPoint, Quaternion.identity);
+
+            angle += angleStep;
+            yield return new WaitForSeconds(0.08f);
+        }
     }
 
     private IEnumerator Proj4Time()
