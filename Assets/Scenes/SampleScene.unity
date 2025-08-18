@@ -6411,7 +6411,7 @@ MonoBehaviour:
   ySpeed: 35
   dashStrength: 100
   moveDamp: 0.05
-  health: 0
+  health: 1e+13
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
