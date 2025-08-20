@@ -271,9 +271,10 @@ public class PlayerController : MonoBehaviour
 
 
 
-            } else if(tags.HasTag("Boss Door"))
+            } else if(tags.HasTag("Transition"))
             {
-                StartCoroutine(BossTransport());
+                TransitionInfo transition = collision.GetComponent<TransitionInfo>();
+                StartCoroutine(RoomTransport(transition.RoomTo, transition.Location));
 
             }
 
@@ -281,14 +282,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private IEnumerator BossTransport()
+    private IEnumerator RoomTransport(int room, Vector2 position)
     {
 
+        //StartCoroutine(roomFade());
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(room);
 
-        yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(1);
-        Destroy(gameObject);
+    }
 
+    private IEnumerator roomFade()
+    {
+        for (int i = 0; i < 100; i++)
+        {
+            yield return new WaitForSeconds(0.005f);
+        }
     }
     void flip()
     {
