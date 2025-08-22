@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private GameObject PlayerStats;
     private PlayerStats stats;
+    private PlayerSpawnManager spawner;
     private HitStop hitStop;
     [SerializeField] private GameObject weapon;
     private WeaponController weaponController;
@@ -63,6 +64,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         stats = PlayerStats.GetComponent<PlayerStats>();
+        spawner = PlayerStats.GetComponent<PlayerSpawnManager>();
         hitStop = PlayerStats.GetComponent<HitStop>();
 
 
@@ -287,7 +289,7 @@ public class PlayerController : MonoBehaviour
 
         //StartCoroutine(roomFade());
         yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene(room);
+        spawner.StartCoroutine(Spawn(room, position));
 
     }
 
