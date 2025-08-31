@@ -289,7 +289,7 @@ public class PlayerController : MonoBehaviour
 
         //StartCoroutine(roomFade());
         yield return new WaitForSeconds(0.5f);
-        spawner.StartCoroutine(Spawn(room, position));
+        StartCoroutine(spawner.Spawn(room, position));
 
     }
 
