@@ -18,14 +18,21 @@ public class TopAnimController : MonoBehaviour
 
     public int SwingCount;
 
-    private PlayerController player;
-    private WeaponController weapon;
+    [SerializeField] private PlayerController player;
+    [SerializeField] private WeaponController weapon;
     [SerializeField] private BotAnimController botAnim;
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player").GetComponent<PlayerController>();
-        weapon = GameObject.Find("Player").GetComponentInChildren<WeaponController>();
+        if (player == null)
+        {
+            player = GameObject.Find("Player").GetComponent<PlayerController>();
+        }
+        if(weapon == null)
+        {
+            weapon = player.GetComponentInChildren<WeaponController>();
+        }
+
     }
 
     // Update is called once per frame

@@ -13,7 +13,7 @@ public class PlayerSpawnManager : MonoBehaviour
 
     public IEnumerator Spawn(int room, Vector2 spawn)
     {
-       spawnPoint = spawn;
+        spawnPoint = spawn;
         SceneManager.LoadScene(room);
         yield return new WaitForSeconds(1f);
 

@@ -13,11 +13,15 @@ public class BotAnimController : MonoBehaviour
     public float runningFrame;
     public float Running;
 
-    private PlayerController player;
+    [SerializeField] private PlayerController player;
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player").GetComponent<PlayerController>();
+        if (player == null)
+        {
+            player = GameObject.Find("Player").GetComponent<PlayerController>();
+        }
+
 
     }
 

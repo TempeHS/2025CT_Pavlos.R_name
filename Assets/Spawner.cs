@@ -6,7 +6,7 @@ public class Spawner : MonoBehaviour
 {
     private PlayerSpawnManager spawnMan;
     [SerializeField] private GameObject player;
-    void Start() 
+    void Awake() 
     {
         spawnMan = GameObject.Find("PlayerStats").GetComponent<PlayerSpawnManager>();
         spawn(spawnMan.spawnPoint);
