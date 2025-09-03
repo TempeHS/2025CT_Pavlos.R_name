@@ -25,10 +25,10 @@ public class DoppleGanger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if( == true)
+        if(Player == null)
         {
-
-        }*/
+            Player = GameObject.FindGameObjectWithTag("Player");
+        }
 
     }
 

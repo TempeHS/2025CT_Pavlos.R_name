@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
 
         if(health <= 0f) 
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
 
 

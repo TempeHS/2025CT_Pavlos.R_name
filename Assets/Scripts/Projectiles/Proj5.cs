@@ -21,6 +21,7 @@ public class Proj5 : MonoBehaviour
 
     private void Awake()
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
         rend = GetComponent<SpriteRenderer>();
         rend.material = new Material(rend.material);
     }

@@ -23,6 +23,7 @@ public class Proj10 : MonoBehaviour
     {
         rend = GetComponent<SpriteRenderer>();
         rend.material = new Material(rend.material);
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
     void Start()
     {
