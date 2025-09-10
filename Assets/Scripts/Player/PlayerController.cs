@@ -88,12 +88,22 @@ public class PlayerController : MonoBehaviour
     {
         horizontalInput = inputHandler.MoveInput.x;
         verticalInput = inputHandler.MoveInput.y;
-        
-        TextHealth.text = "Health: " + health;
+
+        if (TextHealth == null)
+        {
+            GameObject TextHealthObj = GameObject.Find("Text Health");
+            TextHealth = TextHealthObj.GetComponent<TextMeshProUGUI>();
+        }
+        else
+        {
+            TextHealth.text = "Health: " + health;
+        }
+
 
         if(health <= 0f) 
         {
-            Destroy(this.gameObject);
+            Debug.Log("Die");
+            Destroy(gameObject);
         }
 
 

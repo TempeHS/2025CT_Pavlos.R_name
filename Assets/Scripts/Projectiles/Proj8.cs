@@ -23,13 +23,13 @@ public class Proj8 : MonoBehaviour
     {
         rend = GetComponent<SpriteRenderer>();
         rend.material = new Material(rend.material);
-        Player = GameObject.FindGameObjectWithTag("Player");
+
     }
     void Start()
     {
         swirl = rend.material;
         attack = true;
-        Player = GameObject.Find("Player");
+        Player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(release());
     }
 

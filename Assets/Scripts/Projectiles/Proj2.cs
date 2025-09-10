@@ -15,13 +15,12 @@ public class Proj2 : MonoBehaviour
         time = 0;
         rgd = GetComponent<Rigidbody2D>();
 
-        player = FindObjectOfType<PlayerController>().gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void FixedUpdate()
