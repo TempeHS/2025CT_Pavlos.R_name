@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
 
         } else if(isGrounded)
         {
-            flightTime = 4;
+            flightTime = stats.flightTime;
         }
 
         if(flightTime <= 0)
