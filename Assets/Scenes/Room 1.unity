@@ -100307,7 +100307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RoomTo: 2
-  Location: {x: -52, y: 0}
+  Location: {x: -53, y: 0}
 --- !u!114 &1893747729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100351,7 +100351,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -100378,6 +100378,7 @@ GameObject:
   - component: {fileID: 2015252290}
   - component: {fileID: 2015252289}
   - component: {fileID: 2015252291}
+  - component: {fileID: 2015252292}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -100457,6 +100458,19 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 952210689}
   m_ConfineScreenEdges: 1
   m_Damping: 0
+--- !u!114 &2015252292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015252288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76da469d37ddde543875519b0c6a8c93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
 --- !u!1 &2019149693
 GameObject:
   m_ObjectHideFlags: 0

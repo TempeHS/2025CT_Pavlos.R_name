@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class cameraFollow : MonoBehaviour
 {
 
     [SerializeField] private GameObject Player;
+    private CinemachineVirtualCamera virtualCamera;
     // Start is called before the first frame update
     void Start()
     {
-        
+        virtualCamera = GetComponent<CinemachineVirtualCamera>();
     }
 
     // Update is called once per frame
@@ -21,8 +23,7 @@ public class cameraFollow : MonoBehaviour
         } else
         {
 
-            transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y, -10f);
-            Debug.Log(Player.transform.position.x);
+            virtualCamera.m_Follow = Player.transform;
         }
 
 
