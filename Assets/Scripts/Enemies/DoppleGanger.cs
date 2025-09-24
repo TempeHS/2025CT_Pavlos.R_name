@@ -27,7 +27,7 @@ public class DoppleGanger : MonoBehaviour
     {
         if(Player == null)
         {
-            Player = GameObject.FindGameObjectWithTag("Player");
+            Player = GameObject.FindGameObjectWithTag("Player(clone)");
         }
 
     }

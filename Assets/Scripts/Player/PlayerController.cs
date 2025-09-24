@@ -286,7 +286,7 @@ public class PlayerController : MonoBehaviour
             } else if(tags.HasTag("Transition"))
             {
                 TransitionInfo transition = collision.GetComponent<TransitionInfo>();
-                StartCoroutine(RoomTransport(transition.RoomTo, transition.Location));
+                StartCoroutine(RoomTransport(transition.RoomTo, transition.Location, transition.bossFlight));
 
             }
 
@@ -294,12 +294,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private IEnumerator RoomTransport(int room, Vector2 position)
+    private IEnumerator RoomTransport(int room, Vector2 position, bool flight)
     {
 
-        //StartCoroutine(roomFade());
+        StartCoroutine(roomFade());
         yield return new WaitForSeconds(0.5f);
+        if(flight == true)
+        {
+            stats.flightTime = 4f;
+        } else
+        {
+            stats.flightTime = 0.2f;
+        }
         StartCoroutine(spawner.Spawn(room, position));
+        
 
     }
 
@@ -307,6 +315,8 @@ public class PlayerController : MonoBehaviour
     {
         for (int i = 0; i < 100; i++)
         {
+            GameObject Fade = GameObject.Find("Fade Out");
+            Fade.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, Fade.GetComponent<SpriteRenderer>().color.a + 0.1f);
             yield return new WaitForSeconds(0.005f);
         }
     }
