@@ -122,25 +122,28 @@ public class PlayerController : MonoBehaviour
         Parry();
         Attack();
 
-
-        if(verticalInput > 0)
+        if(flight = true)
         {
+            if(verticalInput > 0)
+            {
 
-            flightTime -= Time.fixedDeltaTime;
+                flightTime -= Time.fixedDeltaTime;
 
 
-        } else if(isGrounded)
-        {
-            flightTime = stats.flightTime;
+            } else if(isGrounded)
+            {
+                flightTime = stats.flightTime;
+            }
+
+            if(flightTime <= 0)
+            {
+                ySpeedTrue = 0f;
+            } else
+            {
+                ySpeedTrue = ySpeed;
+            }  
         }
 
-        if(flightTime <= 0)
-        {
-            ySpeedTrue = 0f;
-        } else
-        {
-            ySpeedTrue = ySpeed;
-        }
 
         if (dashTime > 0)
         {
