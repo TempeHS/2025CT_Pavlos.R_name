@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem ParryPart;
 
     public bool flipped;
+    public bool flight;
 
     public float horizontalInput;
     public float verticalInput;
@@ -142,6 +143,18 @@ public class PlayerController : MonoBehaviour
             {
                 ySpeedTrue = ySpeed;
             }  
+        } else
+        {
+            if(isGrounded)
+            {
+                ySpeedTrue = ySpeed;
+            }
+            if (verticalInput == 0)
+            {
+
+                ySpeedTrue = 0;
+            }
+
         }
 
 
