@@ -13,9 +13,19 @@ public class DoppleGanger : MonoBehaviour
     [SerializeField] private float PlayerOffset = 10;
     private bossAi bAi;
 
-
+    void Awake()
+    {
+        if(Player == null)
+        {
+            Player = GameObject.FindGameObjectWithTag("Player");
+        }
+    }
     void Start()
     {
+        if(Player == null)
+        {
+            Player = GameObject.FindGameObjectWithTag("Player");
+        }
         value = 0f;
         Purple.SetColor("_Purple", Color.HSVToRGB(hue / 360, saturation / value, 0));
         bAi = boss.GetComponent<bossAi>();
@@ -27,7 +37,7 @@ public class DoppleGanger : MonoBehaviour
     {
         if(Player == null)
         {
-            Player = GameObject.FindGameObjectWithTag("Player(clone)");
+            Player = GameObject.FindGameObjectWithTag("Player");
         }
 
     }
