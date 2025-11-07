@@ -8,12 +8,17 @@ An in-depth paragraph about your project and overview of use.
 
 ## :japanese_ogre: Boss Fight :japanese_ogre:
 
-### Dependencies
+### Attacks
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+The boss can use a variety of attacks against the player at random. With 8 different attacks in the bosses arsenal, it is able to catch the player off guard if they are not focused.
 
 ![Attack 1](.ReadMeImages/Attack1.gif)
+
+In the first attack, the boss summons a portal that charges up for 4 seconds, before shooting 10 spikes around it. These spikes can be parried or dodged, however if they hit the wall, they turn into flying eyeballs that home onto the player. These eyeballs are far harder to dodge than the spikes, making well timed parries a necessity.
+
+![Attack2](.ReadMeImages/Attack2.gif)
+
+When using its second attack, the boss creates an image of itself ontop of the player, known as a doppelganger. The boss will teleport to the doppelgangers location a second after it appears and shoot 3 bursts of 3 spikes at the player. While doing this, it will summon another doppelganger to the left or right of the player and repeat until the attack ends. Parrying can be used against this attack, however it cant be relied on due to its cooldown.Therefor, dodging is required to survive this attack. 
 
 ### Installing
 
