@@ -4,9 +4,93 @@
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+Evercrescent is a metroidvania game following the main protagonist, known as the hero, through their quest to save the fallen kingdom of Evercrescent from the evil overlord. It features 2 enemies within 4 unique rooms, aswell as a boss room, featuring the overlord boss fight. Use the heroes variety of skills, such as parrying, slashing, dashing and flying to make your way through the fallen kingdom of evercrescent and defeat the overlord. 
+
+## Main Features
+The player is able to run, parry, dash, attack and fly to explore and defeat enemies. With 40hp, the player can tank many enemy attacks, however boss attacks do lots of damage to the player.
+### Controls
+| Key | Action |
+| ----------- | ----------- |
+| W/Space | Fly |
+| A | Walk Left |
+| S | Fast Drop |
+| D | Walk Right |
+| Q | Dash |
+| F | Parry |
+| M1 | Attack |
+
+### Actions
+
+Dash
+![Player Dash](.ReadMeImages/PlayerDash.gif)
+The player can dash left and right, allowing them to dodge attacks easily and cover large distances in a short amount of time. It can be activated by pressing the q key and has a short cooldown to avoid spamming.
+
+---
+Parry
+![Player Parry](.ReadMeImages/PlayerParry.gif)
+The player can parry all enemies and projectiles by pressing the f key. Upon activating a parry, the player gains a small window of immunity frames, where all projectiles are destroyed and enemies are knocked back. After parrying, the player is left vulnerable, being unable to parry for a short cooldown.
+
+---
+Slash
+![Player Slash](.ReadMeImages/PlayerAttack.gif)
+The player can press the Mouse Button One (Left Click) to attack with their sword. This can be used to damage enemies and bosses. An attack buffer is also added so that slashes can be performed consecutively.
+
+---
+Flight
+![Player Flight](.ReadMeImages/PlayerFly.gif)
+The Player can fly by holding S or Space. The player has a limited flight time, which can be regained by landing on the floor. Furthermore, the player can hold the s key to drop faster.
+
+---
+Running
+![Player Run](.ReadMeImages/PlayerRun.gif)
+The player can run left and right by holding the A and D keys respectively. Furthermore, the players sprite is split up into two segments, a top and bottom. This allows the player to attack and parry while running without resetting the animation.
 
 ## :japanese_ogre: Boss Fight :japanese_ogre:
+Evercresent features a powerful boss known as the overlord. He has a full arsenal of attacks to utilise against the player, each with vastly different methods of surviving to keep the player on their toes at all times. It features 150 hp to make the boss more challenging. 
+
+---
+
+### Sprites
+
+The boss fight has many sprites involve, including both itself, it's doppelganger and it's attacks.
+
+---
+
+![Boss Sprite](.ReadMeImages/BossSprite.gif)
+
+This is the bosses sprite. It features a purple shader to represent its magical power.
+
+---
+
+![DoppelGanger Sprite](.ReadMeImages/DoppelGangerSprite.gif)
+
+This is the Doppelgangers sprite. It is a black silhouette with the same magic shader as the boss.
+
+---
+
+![Eyeball Sprite](.ReadMeImages/sprite-animation.gif)
+
+This is the eyeball projectile from attack 1 that homes in on the player.
+
+---
+
+![Spike Sprite](.ReadMeImages/Spike.gif)
+
+This is the spike sprite used by every attack from the boss.
+
+---
+
+![Portal Sprite Regular](.ReadMeImages/PortalSpriteRegular.gif)
+
+This is the portal sprite used for most attacks.
+
+---
+
+![Portal Sprite Purple](.ReadMeImages/PortalSpritePurple.gif)
+
+This is the portal sprite used for the first attack.
+
+---
 
 ### Attacks
 
@@ -40,47 +124,14 @@ The bosses sixth attack is very similar to the fifth attack. The difference is t
 
 Attack seven features the boss charging up a portal before it shoots spikes out in a circle. This attacks charge up phase is almost identical to attack 1, however less purple colouring is present in this attack so that the player can differentiate the two. Precise parry timing is necessary in order to dodge this attack.
 
-### Installing
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
-
-### Executing program
-
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
-
-## Help
-
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
-
-## Authors
-
-Contributors names and contact info
-
-ex. Mr Jones
-ex. [@benpaddlejones](https://github.com/benpaddlejones)
-
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]() or see [branch]()
-* 0.1
-    * Initial Release
-
-## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+## Future Updates
+### More Enemies
+In future updates, I plan to add more enemies to the game as I feel the game is lacking in variety. This will make the game more interesting and intense for the player, creating an overall more enjoyable experience
+### Boss Update
+I plan on adding a second phase to the boss, aswell as an updgrade to the bosses visuals, such as making it's shader slowly intensify as its health lowers.
+### More Rooms
+I plan on adding more rooms to my game as it currently lacks in exploration. This will make the game overall more enjoyable and engaging
 
 ## Acknowledgments
 
-Inspiration, code snippets, etc.
-* [Github md syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
-* [TempeHS Unity template](https://github.com/TempeHS/TempeHS_Unity_DevContainer)
+Gideon Young: Sprites
