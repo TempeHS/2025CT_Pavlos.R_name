@@ -26,6 +26,20 @@ The bosses third attack also utilises the doppelganger. The boss summons the dop
 
 ![Attack4](.ReadMeImages/Attack4.gif)
 
+The fourth attack starts off with the floor disappearing and infinite flight being granted for the duration of the attack. This is done to provide more manoeuvrability to dodge the attack. It features portals spawning at a 12 unit radius away from the player at a random angle. Another portal will spawn opposite to that portal as a decoy. The main portal will spawn a line of 5 spikes that move quickly towards the other portal before disappearing. Constant fast movements are good for dodging this attack as moving will get you out of the way of majority of the portals.
+
+![Attack5](.ReadMeImages/Attack5.gif)
+
+The bosses fifth attack also removes the floor and gives the player infinite flight. This attack spawns a center portal on the player aswell as portals at a 20 unit radius on either side away from the centre portal that circle around the center for the duration of the attack. Each portal shoots spikes towards the centre circle, creating a circular dodging motion for the player. The player is advised to stay close to the centre of the attack as it means they have to moves less distance. They can also parry if they mess up, however parrying is risky due to the high damage of the attack.
+
+![Attack6](.ReadMeImages/Attack6.gif)
+
+The bosses sixth attack is very similar to the fifth attack. The difference is that the outside portals move at slower speeds, however there are now four portals shooting at once, instead of two. For this attack, it is better to stay further away from the centre. This is because the attack moves slower, meaning less distance in needed to be made. That means remaining on the outside provides more room to avoid the spikes.
+
+![Attack7](.ReadMeImages/Attack7.gif)
+
+Attack seven features the boss charging up a portal before it shoots spikes out in a circle. This attacks charge up phase is almost identical to attack 1, however less purple colouring is present in this attack so that the player can differentiate the two. Precise parry timing is necessary in order to dodge this attack.
+
 ### Installing
 
 * How/where to download your program
