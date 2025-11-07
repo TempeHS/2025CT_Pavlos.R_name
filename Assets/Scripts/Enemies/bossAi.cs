@@ -106,7 +106,7 @@ public class bossAi : MonoBehaviour
     {
         attacking = false;
 
-        attackNum = Random.Range(7, 8);
+        attackNum = Random.Range(3, 4);
         if (attackNum == 1)
         {
             attack1();
