@@ -48,6 +48,7 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
         die();
         //transform.LookAt(new Vector2(90, 90));
 
