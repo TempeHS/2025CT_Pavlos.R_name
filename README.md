@@ -20,6 +20,12 @@ In the first attack, the boss summons a portal that charges up for 4 seconds, be
 
 When using its second attack, the boss creates an image of itself ontop of the player, known as a doppelganger. The boss will teleport to the doppelgangers location a second after it appears and shoot 3 bursts of 3 spikes at the player. While doing this, it will summon another doppelganger to the left or right of the player and repeat until the attack ends. Parrying can be used against this attack, however it cant be relied on due to its cooldown.Therefor, dodging is required to survive this attack. 
 
+![Attack3](.ReadMeImages/Attack3.gif)
+
+The bosses third attack also utilises the doppelganger. The boss summons the doppelganger ontop of the boss, and after 1 second, the boss teleports to the doppelgangers location and shoots continous bursts of spikes towards the player. Parrying and dodging is required to survive this attack.
+
+![Attack4](.ReadMeImages/Attack4.gif)
+
 ### Installing
 
 * How/where to download your program
